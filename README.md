@@ -38,7 +38,7 @@
 </div>
 <div align=center>
 	<img src="https://img.shields.io/badge/Eclipse-2C2255?style=flat&logo=EclipseIDE&logoColor=white" />
-	<img src="https://img.shields.io/badge/VScode-007ACC?style=flat&logo=visualstudiocode&logoColor=white" />
+	<img src="https://img.shields.io/badge/Visual%20Studio-007ACC?style=flat&logo=visualstudiocode&logoColor=white" />
   <img src="https://img.shields.io/badge/Intellij%20Idea-000?logo=intellij-idea&style=flat&logoColor=white" />
   <br/>
   <img src="https://img.shields.io/badge/Xcode-007ACC?style=flat&logo=Xcode&logoColor=white" />
