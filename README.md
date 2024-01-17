@@ -50,7 +50,7 @@
 <br/><br/><br/>
 
 # 🦧 스터디원
-|[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545)|<a herf="https://naver.com"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white" /></a>|
+|[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545)|<a herf="https://naver.com"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"></a>|
 |:------:|:---|
 
 
