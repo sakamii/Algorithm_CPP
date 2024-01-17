@@ -59,14 +59,14 @@
 <a href="https://naver.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white"></a>
 </br></br></br>
 
-# 스터디 운영 방식
+# 🤷‍♂️ 스터디 운영 방식
 
 </br></br></br>
 
-# 참여 방법
+# 참여 방법?
 
 </br></br></br>
-# Commit 컨벤션
+# 🖊 Commit 컨벤션
 
 </br></br></br>
 # PR 작성 방법
