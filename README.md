@@ -50,11 +50,11 @@
 <br/><br/><br/>
 
 # 🦧 스터디원
-[![Solved.ac Profile](http://mazassumnida.wtf/api/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545)
-[![Solved.ac Profile](http://mazassumnida.wtf/api/generate_badge?boj=jys0445)](https://solved.ac/jys0445)
-[![Solved.ac Profile](http://mazassumnida.wtf/api/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545)
-[![Solved.ac Profile](http://mazassumnida.wtf/api/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545)
-[![Solved.ac Profile](http://mazassumnida.wtf/api/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545)
+[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545)
+[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=jys0445)](https://solved.ac/jys0445)
+[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=sjhlko)](https://solved.ac/sjhlko)
+[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545)
+[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545)
 
 <br/><br/><br>
 
