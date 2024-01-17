@@ -43,18 +43,39 @@
   <br/>
   <img src="https://img.shields.io/badge/Xcode-007ACC?style=flat&logo=Xcode&logoColor=white" />
   <img src="https://img.shields.io/badge/Notion-000000?style=flat&logo=notion&logoColor=white" />
-	<img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white" />
+  <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white" />
   <img src="https://img.shields.io/badge/Colab-F9AB00?style=flat&logo=googlecolab&color=525252" />
 </div>
 
 <br/><br/><br/>
 
 # 🦧 스터디원
+|[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545)|<a herf="https://naver.com"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white" /></a>|
+|:------:|:---|
+
+
+
+<div>
+<div>오정현</div>
+
 [![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545)
+
+<div>전다윤</div>
+
+[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545) 
+
+<div>장윤석</div>
+
 [![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=jys0445)](https://solved.ac/jys0445)
-[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=sjhlko)](https://solved.ac/sjhlko)
+
+<div>문세진</div>
+
 [![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545)
+
+<div>이유단</div>
+
 [![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545)
+</div>
 
 <br/><br/><br>
 
