@@ -9,7 +9,7 @@
 |:------:|:---|
 |스터디 장소|테스트2|
 |스터디 시간|테스트2|
-|플랫폼|백준, 프로그래머스, SWEA|
+|플랫폼|백준, 프로그래머스, SWEA(대외비)|
 |사용 언어|<img src="https://img.shields.io/badge/C++-00599C?style=flat&logo=C%2B%2B&logoColor=white" />|
 
 <br/><br/><br/>
