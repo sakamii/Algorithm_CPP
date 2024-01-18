@@ -85,7 +85,7 @@
 2. 생성된 원격 저장소(본인 깃헙) 자신의 폴더에 날짜별 폴더를 생성한다. <br/> 폴더명은 매주의 스터디 날짜 (ex. 20240123)
 3. 문제 풀이 후 자신의 원격 저장소(본인 깃헙) 날짜 폴더에 `push` 한다. <br/> 파일명은 "플랫폼 문제번호 문제이름.확장자" (ex. 백준 1041 주사위.cpp)
 4. commit 컨벤션 양식을 지켜 커밋한다.
-5. 매주 월요일마다 원본 저장소로 `PR(pull request)` 및 'merge' 한다. <br/> 본인 깃헙 `Algorithm_CPP` 레포지토리에서 `Contribute` > `Create Pull Request`
+5. 매주 월요일마다 원본 저장소로 `PR(pull request)` 및 `merge` 한다. <br/> 본인 깃헙 `Algorithm_CPP` 레포지토리에서 `Contribute` > `Create Pull Request`
 
 </br></br>
 # 🥇 Commit 컨벤션
