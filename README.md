@@ -87,19 +87,19 @@
 
 <br/><br/>
 # 🧩 참여 방법 <img width="46" alt="star3" src="https://user-images.githubusercontent.com/78655692/151471989-9e21d7a8-a7b6-44b0-b598-2bb204b56b00.png">
-1. 레포지토리를 `fork` 한다.
+1. 레포지토리를 `fork` 한다. (스터디 깃헙 첫 가입시에만)
 2. 생성된 원격 저장소 자신의 폴더에 날짜별 폴더를 생성한다. (ex. 20240101)
 3. 문제 풀이 후 자신의 원격 저장소 날짜 폴더에 `push` 한다. 파일명은 "플랫폼 문제번호 문제이름.확장자" (ex. 백준 1041 주사위.cpp)
 4. commit 컨벤션 양식을 지켜 커밋한다.
-5. 원본 저장소로 `PR` 한다. 본인 깃헙 `Algorithm_CPP` 레포지토리에서 `Contribute` > `Create Pull Request`
-
+5. 원본 저장소로 `PR(Pull Request)` 한다. 본인 깃헙 `Algorithm_CPP` 레포지토리에서 `Contribute` > `Create Pull Request`
 
 </br></br>
 # 🖊 Commit 컨벤션
+* [플랫폼] 문제제목 문제번호 <br/> ex) 백준 1041 주사위
 
 </br></br></br>
-# PR 작성 방법
-
+# 🥇 PR 작성 방법
+* [플랫폼] 문제제목 문제번호 <br/> ex) 백준 1041 주사위
 
 
 
