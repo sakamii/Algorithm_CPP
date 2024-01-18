@@ -72,12 +72,6 @@
 |<div>이유단</div></br><a href="https://github.com/sakamii"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"></a>|[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=sakamii)](https://solved.ac/sakamii)||
 
 
-</br></br>
-<a href="https://naver.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white"></a>
-
-# TEST
-[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545)
-[![mazandi profile](http://mazandi.herokuapp.com/api?handle=wjdgus0545)](https://solved.ac/wjdgus0545)
 </br></br></br>
 
 # 🤷‍♂️ 스터디 진행 방식
