@@ -6,7 +6,7 @@
 # 🐳 싸피 11기 알고리즘 스터디
 
 <table>
- <tr>
+  <tr>
     <td>스터디 시작</td>
     <td>2024년 1월 17일 ~</td>
   </tr>
@@ -69,7 +69,8 @@
 |<div>오정현</div></br><a href="https://github.com/ohsopp"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"></a></br><a href="https://github.com/ohsopp"><img src="https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white"></a>|[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545)|<div>전다윤</div></br><a href="https://github.com/JeonDY"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"></a>|[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545)|
 |:----:|:------:|:----:|:------:|
 |<div>장윤석</div></br><a href="https://github.com/wjdgus0545"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"></a>|[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545)|<div>문세진</div></br><a href="https://github.com/sejinmoon"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"></a>|[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545)|
-|<div>이유단</div></br><a href="https://github.com/wjdgus0545"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"></a>|[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545)||
+|<div>이유단</div></br><a href="https://github.com/sakamii"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"></a>|[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=sakamii)](https://solved.ac/sakamii)||
+
 
 </br></br>
 <a href="https://naver.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white"></a>
