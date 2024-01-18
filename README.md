@@ -91,7 +91,7 @@
 2. 생성된 원격 저장소 자신의 폴더에 날짜별 폴더를 생성한다. (ex. 20240101)
 3. 문제 풀이 후 자신의 원격 저장소 날짜 폴더에 `push` 한다. 파일명은 "플랫폼 문제번호 문제이름.확장자" (ex. 백준 1041 주사위.cpp)
 4. commit 컨벤션 양식을 지켜 커밋한다.
-5. 원본 저장소로 `PR` 한다. 본인 깃헙 Algorithm_CPP 레포지토리에서 `Contribute` > `Create Pull Request`
+5. 원본 저장소로 `PR` 한다. 본인 깃헙 `Algorithm_CPP` 레포지토리에서 `Contribute` > `Create Pull Request`
 
 
 </br></br>
