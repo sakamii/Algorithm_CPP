@@ -88,12 +88,12 @@
 5. 원본 저장소로 `PR(Pull Request)` 한다. <br/> 본인 깃헙 `Algorithm_CPP` 레포지토리에서 `Contribute` > `Create Pull Request`
 
 </br></br>
-# 🥇 Commit 컨벤션 & PR 작성 방법
+# 🥇 Commit 컨벤션
 * [플랫폼] 문제번호 문제이름 <br/> ex) 백준 1041 주사위
 
 </br></br>
 
-# PR 작성 방법
+# 👤 PR 작성 방법
 * [날짜] 플랫폼 문제이름 <br/> ex) [20240123] 백준 주사위
 
 </br>
