@@ -89,7 +89,7 @@
 2. 생성된 **원격** 저장소에서 자신의 이름 폴더 하위에 날짜별 폴더를 생성한다. <br/> 폴더명은 매주의 스터디 날짜 (ex. 20240123)
 3. 문제 풀이 후 본인의 **원격** 저장소 날짜 폴더에 `push` 한다.
 4. <span><a href="#jump">컨벤션 양식</a></span>을 지켜 커밋한다.
-5. 매주 월요일마다 **원본** 저장소로 `PR(pull request)` 및 `merge`를 수행한다. <br/> **원격** 저장소 `Algorithm_CPP` 레포지토리에서 `Contribute > Create Pull Request`
+5. 매주 월요일마다 **원본** 저장소로 `PR(pull request)` 및 `merge`를 수행한다. <br/> **원격** 저장소 `Algorithm_CPP` 레포지토리에서 `Contribute > Create Pull Request` <br/> (최종적으로, 원본 저장소와 conflict 발생하지 않음 확인하고 `Comfirm Merge`까지 수행)
 
 </br></br>
 
