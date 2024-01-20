@@ -59,8 +59,8 @@
 	<img src="https://img.shields.io/badge/Visual%20Studio-5C2D91?style=flat&logo=Visual%20Studio&logoColor=white" />
 	<img src="https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=flat&logo=visualstudiocode&logoColor=white" />
   <img src="https://img.shields.io/badge/Intellij%20Idea-000?logo=intellij-idea&style=flat&logoColor=white" />
-  <img src="https://img.shields.io/badge/PyCharm-000000?style=flat&logo=PyCharm&logoColor=white" />
   </br>
+<img src="https://img.shields.io/badge/PyCharm-000000?style=flat&logo=PyCharm&logoColor=white" />
   <img src="https://img.shields.io/badge/Xcode-007ACC?style=flat&logo=Xcode&logoColor=white" />
   <img src="https://img.shields.io/badge/Notion-000000?style=flat&logo=notion&logoColor=white" />
   <img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white" />
