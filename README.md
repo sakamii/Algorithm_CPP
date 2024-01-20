@@ -105,7 +105,8 @@
 
 </br></br>
 
-#convention-rule
+# convention-rule
+
 # 🥇 컨벤션 규칙
 * **파일명** : [플랫폼] 문제번호 문제이름.cpp <br/> ex) `백준 1041 주사위.cpp` <br/>
 * **#Commit 컨벤션** : [플랫폼] 문제번호 문제이름 <br/> ex) `[백준] 1041 주사위` <br/>
