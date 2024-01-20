@@ -28,8 +28,8 @@ int main() {
 	x = k;
 	for (int i = 0; i < n; i++) {
 		cout << query(1, 1, n, x);
-  if (tree[1]) cout << ", ";
-  else break;
+		if (tree[1]) cout << ", ";
+		else break;
 		x += k - 1;
 		x = x % tree[1] ? x % tree[1] : tree[1];
 	}
