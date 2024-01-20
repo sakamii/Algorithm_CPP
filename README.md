@@ -67,7 +67,7 @@
 </br></br></br>
 
 # 🦧 스터디원
-<div style="font-size:5px">안 보일시 새로고침하면 보입니다!</div>
+<div style="font-size:5px">Solved.ac 카드가 안 보일시 새로고침 하시면 됩니다!</div>
 
 |<a href="https://github.com/ohsopp"><img src="https://avatars.githubusercontent.com/ohsopp" width="50px;" alt=""></a><div>오정현</div></br><a href="https://github.com/ohsopp"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"></a></br><a href="https://github.com/ohsopp"><img src="https://img.shields.io/badge/Gmail-D14836?style=flat&logo=gmail&logoColor=white"></a>|[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=wjdgus0545)](https://solved.ac/wjdgus0545)|<a href="https://github.com/JeonDY"><img src="https://avatars.githubusercontent.com/JeonDY" width="50px;" alt=""></a><div>전다윤</div></br><a href="https://github.com/JeonDY"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"></a>|[![Solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=pon04074)](https://solved.ac/pon04074)|
 |:----:|:------:|:----:|:------:|
