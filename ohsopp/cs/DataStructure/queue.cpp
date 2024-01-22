@@ -11,7 +11,8 @@ int main() {
 	for (int i = 1; i < 10; i++)
 		q.push(i);
 
-	while (!q.empty()) {  // 1 2 3 4 5 6 7 8 9
+	// 1 2 3 4 5 6 7 8 9
+	while (!q.empty()) {
 		cout << q.front() << " ";
 		q.pop();
 	}
@@ -22,7 +23,8 @@ int main() {
 	for (int i = 0; i < 10; i++)
 		pq.push(arr[i]);
 
-	while (!pq.empty()) {  // 79 64 53 45 37 32 21 12 6 3
+	// 79 64 53 45 37 32 21 12 6 3
+	while (!pq.empty()) {
 		cout << pq.top() << " ";
 		pq.pop();
 	}
