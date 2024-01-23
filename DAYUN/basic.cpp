@@ -12,21 +12,31 @@ void vector_discription();
 void priorityQueue_discription();
 void algorithm_discription();
 
+typedef struct pq_edge {
+	int v, c, k;
+	bool operator > (const pq_edge& temp) const
+	{
+		return c > temp.c;
+	}
+} pq_edge;
+
+typedef struct algorithm_sort_struct {
+	int a, b, c;
+}algorithm_sort_struct;
+
+bool algorithm_sort_cmp(algorithm_sort_struct& a, algorithm_sort_struct& b)
+{
+	if (a[0] < a[0]) return true;
+	return false;
+}
+
+
 int main()
 {
 	algorithm_discription();
 
-    return 0;
+	return 0;
 }
-
-
-typedef struct edge{
-    int v, c, k;
-    bool operator > (const edge& temp) const 
-    {
-        return c > temp.c;
-    }
-} edge;
 
 void queue_discription() {
 	queue<string> q;
@@ -34,16 +44,16 @@ void queue_discription() {
 	q.push("second");
 	q.emplace("third");
 	//"third"
-	cout << q.back() << endl; 
+	cout << q.back() << endl;
 	//3
 	cout << q.size() << endl;
 	while (!q.empty()) {
 		//first second third
-		cout << q.front() << "  ";
+		cout << q.front() << " ";
 		q.pop();
 	}
 	cout << endl;
-	
+
 
 	queue<int> q1, q2;
 	q1.push(1);
@@ -51,7 +61,7 @@ void queue_discription() {
 	q2.push(2);
 	q2.push(1);
 	// all of queue, sequence 
-	if (q1 == q2){
+	if (q1 == q2) {
 		cout << "equal" << endl;
 	}
 	//front() value
@@ -90,88 +100,88 @@ void vector_discription() {
 	vector<string> vOperation;
 	vector<string> vassign;
 
-    // = : copy data from v
+	// = : copy data from v
 	vOperation = v;
 
 	//ASSIGN : vasssign = {"assign", "assign", "assign" };
 	vassign.assign(3, "assign");
 
-    // SWAP
-    v.swap(vassign);
+	// SWAP
+	v.swap(vassign);
 
-    // ERASE : 
-    v.erase(v.begin() + 1);
-    v.erase(v.begin() + 0, v.begin() + 1);
+	// ERASE : 
+	v.erase(v.begin() + 1);
+	v.erase(v.begin() + 0, v.begin() + 1);
 
-    //PUSH_BACK, EMPLACE_BACK
-    v.push_back("puch_back");
-    v.emplace_back("emplace_back");
-    // INSERT, EMPLACE
-    v.insert(v.begin(), "insert");
-    v.emplace(v.begin() + 1, "emplace");
-    // AT
-    v.at(1) = "at";
+	//PUSH_BACK, EMPLACE_BACK
+	v.push_back("puch_back");
+	v.emplace_back("emplace_back");
+	// INSERT, EMPLACE
+	v.insert(v.begin(), "insert");
+	v.emplace(v.begin() + 1, "emplace");
+	// AT
+	v.at(1) = "at";
 
-    // RESIZE
-    v.resize(v.size() + 1);
-    v[5] = "Resize";
+	// RESIZE
+	v.resize(v.size() + 1);
+	v[5] = "Resize";
 
 
-    // POP_BACK, "Resize" pop
-    v.pop_back();
+	// POP_BACK, "Resize" pop
+	v.pop_back();
 
-    //FRONT, "front" 
-    string v_front = v.front();
-    
-    // BACK, "emplace_back"
-    string v_back = v.back();
+	//FRONT, "front" 
+	string v_front = v.front();
 
-    // Empty : v.empty()w
-    while(!v.empty())
-    {
-        cout << v.front() << " ";
-        v.erase(v.begin());
-    }
+	// BACK, "emplace_back"
+	string v_back = v.back();
 
-    // CLEAR
-	v.clear(); 
+	// Empty : v.empty()w
+	while (!v.empty())
+	{
+		cout << v.front() << " ";
+		v.erase(v.begin());
+	}
+
+	// CLEAR
+	v.clear();
 }
 
 void priorityQueue_discription() {
-    vector<int> data = {2, 5, 6, 7 ,1 ,8, 9, 0};
-    // auto desc sort c desc
-    priority_queue<int> pq;
-	// sort : edge operation
-	priority_queue<edge> edge_que;
-    // ASC
-    priority_queue<int, vector<int>, greater<int>> ascq(data.begin(), data.end());
+	vector<int> data = { 2, 5, 6, 7 ,1 ,8, 9, 0 };
+	// auto desc sort c desc
+	priority_queue<int> pq;
+	// sort : pq_edge operation
+	priority_queue<pq_edge> edge_que;
+	// ASC
+	priority_queue<int, vector<int>, greater<int>> ascq(data.begin(), data.end());
 
 
-    for(int i : data)
-    {
-        pq.push(i);
-        ascq.push(-i);
-    }
+	for (int i : data)
+	{
+		pq.push(i);
+		ascq.push(-i);
+	}
 
-    while(!ascq.empty())
-    {
-        // couut << pq[pq.size() - 1] << " ";
-        cout << ascq.top();
-        ascq.pop();
-    }
+	while (!ascq.empty())
+	{
+		// couut << pq[pq.size() - 1] << " ";
+		cout << ascq.top();
+		ascq.pop();
+	}
 }
 
 void algorithm_discription() {
 	// vector , array sort
-    vector<int> data = {2, 5, 0, 7 ,1 ,8, 9, 0};
+	vector<int> data = { 2, 5, 0, 7 ,1 ,8, 9, 0 };
 
 	// FIND
 	// find : return Address not find : return End address 
-    // if(find(data.begin(), data.end(), 10) != data.end()) 
-	if(binary_search(data.begin(), data.end(), 10))
+	// if(find(data.begin(), data.end(), 10) != data.end()) 
+	if (binary_search(data.begin(), data.end(), 10))
 	{
-        cout << "Contain";
-    }
+		cout << "Contain";
+	}
 
 	// COPY
 	vector<int> copy_vector;
@@ -179,17 +189,25 @@ void algorithm_discription() {
 	copy(data.begin(), data.end(), copy_vector.begin());
 
 	// MOVE (C++ 11)
-	vector<int> move_vector = {1, 2, 3};
+	vector<int> move_vector = { 1, 2, 3 };
 	data.resize(data.size() + move_vector.size());
 	move(move_vector.begin(), move_vector.end(), data.end() - move_vector.size());
 
 	//SORT
 	sort(data.begin(), data.end());
-	
+	//SORT  
+	vector<algorithm_sort_struct> data2(3);
+	data2 = {
+		{1, 2, 3},
+		{3, 1, 2},
+		{2, 3, 1}
+	};
+	sort(data2.begin(), data2.end(), algorithm_sort_cmp);
+
 	// MAX MIN
 	// cout << *min_element(data.begin(), data.end()) << endl;
 	// cout << *max_element(data.begin(), data.end()) << endl;
-	
+
 	//INNER PRODUCT {2, 2, 2, 2, 2}
 	vector<int> v(5, 2);
 	vector<int> v2(20);
@@ -205,7 +223,7 @@ void algorithm_discription() {
 	// FILL
 	fill(v2.begin(), v2.end(), 1);
 
-	for(int i = 0; i < data.size(); i++)
+	for (int i = 0; i < data.size(); i++)
 	{
 		cout << data[i] << " ";
 	}
