@@ -39,7 +39,7 @@ void queue_discription() {
 	cout << q.size() << endl;
 	while (!q.empty()) {
 		//first second third
-		cout << q.front() << " ";
+		cout << q.front() << "  ";
 		q.pop();
 	}
 	cout << endl;
