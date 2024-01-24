@@ -14,7 +14,7 @@ void algorithm_discription();
 
 typedef struct pq_edge {
 	int v, c, k;
-	bool operator > (const pq_edge& temp) const
+	bool operator < (const pq_edge& temp) const
 	{
 		return c > temp.c;
 	}
@@ -26,14 +26,14 @@ typedef struct algorithm_sort_struct {
 
 bool algorithm_sort_cmp(algorithm_sort_struct& a, algorithm_sort_struct& b)
 {
-	if (a[0] < a[0]) return true;
+	if (a.a < b.a) return true;
 	return false;
 }
 
 
 int main()
 {
-	algorithm_discription();
+	priorityQueue_discription();
 
 	return 0;
 }
