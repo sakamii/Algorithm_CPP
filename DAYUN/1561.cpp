@@ -2,17 +2,19 @@
 
 using namespace std;
 int play[10000];
-int p = 10000;
 
 
 int main() {
     //n : child m : play
     int n, m;
     int mmin = 30, mmax = 0;
-    cin >> n >> m;
+    //cin >> n >> m;
+    n = 2000000000;
+    m = 1;
     for (int i = 0; i < m; i++)
     {
-        cin >> play[i];
+        //cin >> play[i];
+        play[i] = 1;
         if (mmin > play[i]) mmin = play[i];
         if (mmax < play[i]) mmax = play[i];
     }
@@ -27,9 +29,10 @@ int main() {
 
     mmax *= n;
     int mid = 0;
-    while (mmin <= mmax) {
+    while (mmin < mmax) {
         //cout << mmin <<" " << mmax << endl;
-        mid = (mmin + mmax) / 2;
+        //mid = (mmin + mmax) / 2;
+        mid = mmin / 2 + mmax / 2;
         int nChild = 0;
         for (int i = 0; i < m; i++)
         {
