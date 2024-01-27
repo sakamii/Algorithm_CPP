@@ -46,11 +46,11 @@ int main() {
 		for (int j = i + 1; j < v.size(); j++) {
 			int sum = v[i] + v[j];
 
-      			// STL 제공 lower_bound, upper_bound 함수
+			// STL 제공 lower_bound, upper_bound 함수
 			//int idx1 = lower_bound(v.begin() + j + 1, v.end(), -sum) - v.begin();
 			//int idx2 = upper_bound(v.begin() + j + 1, v.end(), -sum) - v.begin();
 
-      			// 직접 구현한 low_bound, up_bound 함수
+			// 직접 구현한 low_bound, up_bound 함수
 			int idx1 = low_bound(j + 1, v.size() - 1, -sum);
 			int idx2 = up_bound(j + 1, v.size() - 1, -sum);
 			ans += idx2 - idx1;
