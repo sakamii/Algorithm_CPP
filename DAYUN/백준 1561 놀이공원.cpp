@@ -23,7 +23,6 @@ int main() {
     }
     n = n - m;
 
-    //mmax *= n;
     long long mid = 0;
     long long t = 0;
     while (mmin <= mmax) {
@@ -43,16 +42,6 @@ int main() {
         }
     }
 
-
-
-    // cout << mid << " " << mmin << " " << mmax << endl;
-    // t가 딱 n명째 태우는 정확한 시간
-    // t-1일 때 몇명 태우는지? 그 뒤로 운행시간 mod 연산이 0이 될때마다 1씩추가
-    cout << mid << endl;
-    cout << mmax << endl;
-    cout << mmin << endl;
-    cout << t << endl;
-
     long long nChild = 0;
     t--;
     for (int i = 0; i < m; i++)
@@ -63,8 +52,6 @@ int main() {
 
     int k = 0;
     int c = 0;
-    cout << t << " " <<n << " " << (t - 1) << " " << nChild << endl;
-
     while (c < (n - nChild))
     {
         if ((t % play[k]) == 0) {
