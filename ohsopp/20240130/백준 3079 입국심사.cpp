@@ -12,10 +12,10 @@ int main() {
 
 	for (int i = 0; i < n; i++) {
 		cin >> a[i];
-        k = max(k, a[i]);
-    }
-    
-    r = k * m;
+		k = max(k, a[i]);
+	}
+
+	r = k * m;
 	while (l <= r) {
 		mid = (l + r) / 2;
 		cnt = 0;
