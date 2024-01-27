@@ -1,4 +1,5 @@
 #include<iostream>
+#include <climits>
 
 using namespace std;
 
@@ -10,25 +11,21 @@ int main() {
 
     int k, n;
     int young[10000];
-    int max = 0;
-    int min = 0;
+    long long max = INT_MAX;
+    long long min = 1;
 
     cin >> k >> n;
 
     for(int i = 0; i < k; i++)
     {
         cin >> young[i];
-        if(max < young[i])
-        {
-            max = young[i];
-        }
     }
 
-    int result = 0;
-    while(min < max)
+    long long result = 0;
+    while(min <= max)
     {
-        int mid = (min + max) / 2;
-        int nl = 0;
+        long long mid = (min + max) / 2;
+        long long nl = 0;
 
         for(int i = 0; i < k; i++) {
             nl += young[i]/mid;
@@ -36,17 +33,13 @@ int main() {
 
         if(nl >= n) {
             min = mid + 1;
+            result = mid;
         }
         else if(nl < n) {
             max = mid - 1;
         }
-        if(nl == n)
-        {
-            result = mid;
-        }
-
     }
-    cout  <<result << endl;
+    cout  << result << endl;
 
 
 }
