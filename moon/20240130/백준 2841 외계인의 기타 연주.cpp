@@ -7,17 +7,18 @@ using namespace std;
 
 int main() {
 
-	int n, p,k;
-	stack<int> s[7];
-	int a;
+	int n, p, k, a;
 	int count = 0;
 
+	// stack 크기 할당에서 runtime error 조심
+	stack<int> s[7];
+
 	cin >> n >> k;
-	
+
 	for (int i = 0; i < n; i++) {
 		cin >> a >> p;
 		while (1) {
-			if (s[a].empty() == 1) {
+			if (s[a].empty()) {
 				s[a].push(p);
 				count++;
 				break;
@@ -27,11 +28,11 @@ int main() {
 				count++;
 				break;
 			}
-			else if (p == s[a].top()) break;
 			else if (p < s[a].top()) {
 				s[a].pop();
 				count++;
 			}
+			else if (p == s[a].top()) break;
 		}
 	}
 
