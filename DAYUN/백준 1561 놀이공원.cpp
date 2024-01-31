@@ -2,16 +2,16 @@
 #include <algorithm>
 
 using namespace std;
-long long play[10000];
+int play[10000];
 
 
 int main() {
     //n : child m : play
     int n, m;
-    long long mmin = 1000000000;
-    long long mmax;
+    long long int mmin = 1000000000;
+    long long int mmax;
     cin >> n >> m;
-    for (long long i = 0; i < m; i++)
+    for (int i = 0; i < m; i++)
     {
         cin >> play[i];
         if (mmin > play[i]) mmin = play[i];
@@ -24,10 +24,11 @@ int main() {
     n = n - m;
     
     mmax = mmin * n;
-    long long mid = 0;
+    long long int mid = 0;
     while (mmin < mmax) {
-        mid = (mmin + mmax) / (long long)2;
-        long long nChild = 0;
+        //속도 차이 나는 부분 (long long int) 8ms -> 4ms
+        mid = (mmin + mmax) / (long long int)2;
+        long long int nChild = 0;
         for (int i = 0; i < m; i++)
         {
             nChild += mid / play[i];
@@ -41,8 +42,7 @@ int main() {
         }
     }
 
-
-    long long nChild = 0;
+    int nChild = 0;
     mmax--;
     for (int i = 0; i < m; i++)
     {
@@ -51,7 +51,7 @@ int main() {
     mmax++;
 
     int k = 0;
-    long long c = n - nChild;
+    int c = n - nChild;
     for (k = 0; k < m; k++) {
         if (!(mmax % play[k])) {
             c--;
