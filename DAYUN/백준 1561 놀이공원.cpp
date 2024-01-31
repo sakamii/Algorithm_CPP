@@ -6,6 +6,7 @@ long long play[10000];
 
 
 int main() {
+    //n : child m : play
     int n, m;
     long long mmin = 1000000000;
     long long mmax;
@@ -21,12 +22,13 @@ int main() {
         return 0;
     }
     n = n - m;
+    
     mmax = mmin * n;
     long long mid = 0;
     while (mmin < mmax) {
         mid = (mmin + mmax) / (long long)2;
         long long nChild = 0;
-        for (long long i = 0; i < m; i++)
+        for (int i = 0; i < m; i++)
         {
             nChild += mid / play[i];
         }
@@ -42,13 +44,13 @@ int main() {
 
     long long nChild = 0;
     mmax--;
-    for (long long i = 0; i < m; i++)
+    for (int i = 0; i < m; i++)
     {
         nChild += (mmax / play[i]);
     }
     mmax++;
 
-    long long k = 0;
+    int k = 0;
     long long c = n - nChild;
     for (k = 0; k < m; k++) {
         if (!(mmax % play[k])) {
