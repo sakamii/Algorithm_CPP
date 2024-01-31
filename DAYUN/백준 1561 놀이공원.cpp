@@ -1,64 +1,62 @@
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
-int play[10000];
+long long play[10000];
 
 
 int main() {
-    //n : child m : play
-    long long n, m;
-    long long mmin = 0;
-    long long mmax = (long long)30 * (long long)2000000000;
+    int n, m;
+    long long mmin = 1000000000;
+    long long mmax;
     cin >> n >> m;
-    for (int i = 0; i < m; i++)
+    for (long long i = 0; i < m; i++)
     {
         cin >> play[i];
-
+        if (mmin > play[i]) mmin = play[i];
     }
 
-    // binary search
     if (n <= m) {
         cout << n;
         return 0;
     }
     n = n - m;
-
+    mmax = mmin * n;
     long long mid = 0;
-    long long t = 0;
-    while (mmin <= mmax) {
+    while (mmin < mmax) {
         mid = (mmin + mmax) / (long long)2;
         long long nChild = 0;
-        for (int i = 0; i < m; i++)
+        for (long long i = 0; i < m; i++)
         {
-            nChild += (long long)(mid / play[i]);
+            nChild += mid / play[i];
         }
 
         if (nChild >= n) {
-            mmax = mid - 1;
-            t = mid;
+            mmax = mid;
         }
         else if (nChild < n) {
             mmin = mid + 1;
         }
     }
 
-    long long nChild = 0;
-    t--;
-    for (int i = 0; i < m; i++)
-    {
-        nChild += (t / play[i]);
-    }
-    t++;
 
-    int k = 0;
-    int c = 0;
-    while (c < (n - nChild))
+    long long nChild = 0;
+    mmax--;
+    for (long long i = 0; i < m; i++)
     {
-        if ((t % play[k]) == 0) {
-            c++;
-        }
-        k++;
+        nChild += (mmax / play[i]);
     }
-    cout << k;
+    mmax++;
+
+    long long k = 0;
+    long long c = n - nChild;
+    for (k = 0; k < m; k++) {
+        if (!(mmax % play[k])) {
+            c--;
+            if (!c) break;
+        }
+    }
+    cout << k + 1;
+
 }
 
