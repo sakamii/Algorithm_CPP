@@ -17,15 +17,8 @@ int main() {
         arr[i] = sum;
     }
 
-    // for(int i = 0; i < n + 1; i++) {
-    //     cout << arr[i];
-    // }
-
-    arr[n + 1] = 1000000;
-
     for(int i = k; i <= n; i++) {
         result = max(result,arr[i] - arr[i - k]);
     }
-    cout << endl;
     cout << result;
 }
