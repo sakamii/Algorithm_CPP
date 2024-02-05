@@ -54,14 +54,6 @@ int solution(vector<vector<int>> board, vector<vector<int>> skill) {
         prefix_sum[r2 + 1][c2 + 1] +=degree;
     }
 
-    for(int i = 0; i < n; i++) {
-        for(int j = 0; j < m; j++) {
-            cout << prefix_sum[i][j] << " ";
-        }
-        cout << endl;
-    }
-
-
     for(int i = 1; i < n; i++) {
         prefix_sum[i][0] = prefix_sum[i][0] + prefix_sum[i - 1][0];
     }
@@ -79,10 +71,7 @@ int solution(vector<vector<int>> board, vector<vector<int>> skill) {
             if((prefix_sum[i][j] + board[i][j]) > 0) {
                 answer++;
             }
-            cout << prefix_sum[i][j] + board[i][j] << " ";
-
         }
-        cout << endl;
     }
 
     return answer;
