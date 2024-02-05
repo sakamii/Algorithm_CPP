@@ -42,6 +42,10 @@ int main() {
         }
     }
 
+
+    //만약 mmmin = mid;
+    // 무조건 시간이 나온다
+
     long long nChild = 0;
     t--;
     for (int i = 0; i < m; i++)
