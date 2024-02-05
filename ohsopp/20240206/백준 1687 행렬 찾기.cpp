@@ -9,8 +9,7 @@ int n, m, ans, tree[2000], mat[335][335];
 char ch;
 
 // segment-tree (메모리 초과)
-/*
-int init(int s, int e, int node, int row) {
+/*int init(int s, int e, int node, int row) {
 	if (s == e) return tree[node] = s;		// 리프 노드값 설정
 
 	int mid = (s + e) / 2;
@@ -42,8 +41,7 @@ void solve(int left, int right, int row) {
 
 	solve(left, idx - 1, row);
 	solve(idx + 1, right, row);
-}
-*/
+}*/
 
 int main() {
 	cin >> n >> m;
