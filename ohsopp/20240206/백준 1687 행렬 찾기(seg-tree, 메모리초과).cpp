@@ -2,14 +2,12 @@
 // https://www.acmicpc.net/problem/1687
 
 #include <iostream>
-#include <stack>
 using namespace std;
 
 int n, m, ans, tree[2000], mat[335][335];
 char ch;
 
-// segment-tree (메모리 초과)
-/*
+// segment-tree (입력 개수 많을 때 메모리 초과)
 int init(int s, int e, int node, int row) {
 	if (s == e) return tree[node] = s;		// 리프 노드값 설정
 
@@ -43,7 +41,6 @@ void solve(int left, int right, int row) {
 	solve(left, idx - 1, row);
 	solve(idx + 1, right, row);
 }
-*/
 
 int main() {
 	cin >> n >> m;
@@ -55,24 +52,10 @@ int main() {
 			if (mat[i][j]) mat[i][j] += mat[i - 1][j];
 		}
 
-	/*for (int i = 1; i <= n; i++) {
+	for (int i = 1; i <= n; i++) {
 		fill(tree, tree + 2000, 0);
 		init(0, m - 1, 1, i);
 		solve(0, m - 1, i);
-	}*/
-
-	for (int i = 1; i <= n; i++) {
-		stack<int> st;
-		st.push(0);
-    
-		for (int j = 1; j <= m + 1; j++) {
-			while (!st.empty() && mat[i][st.top()] > mat[i][j]) {
-				int idx = st.top();
-				st.pop();
-				ans = max(ans, mat[i][idx] * (j - st.top() - 1));
-			}
-			st.push(j);
-		}
 	}
 	cout << ans;
 }
