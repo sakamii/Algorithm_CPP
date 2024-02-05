@@ -11,8 +11,8 @@ int dfs(int l, int r, int c, bool flag) {
 	if (l > r) return min(c, 2);
 
 	int ret = 2;
-	if (s[l] == s[r])
-    return dfs(l + 1, r - 1, c, flag);
+	if (s[l] == s[r]) 
+		return dfs(l + 1, r - 1, c, flag);
 	else {
 		if (!flag) {
 				ret = dfs(l + 1, r, c + 1, 1);
