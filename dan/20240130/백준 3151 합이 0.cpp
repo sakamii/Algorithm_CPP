@@ -12,12 +12,12 @@ int main() {
     
     sort(students.begin(), students.end());
     
-    unsigned int cnt = 0;
+    long long cnt = 0;
     for (int i = 0; i < n - 1; i++) { 
         for (int j = i + 1; j < n; j++) { 
-            int a = -(students[i] + students[j]);
-            int upper = upper_bound(students.begin() + j + 1, students.end(), a) - students.begin();
-            int lower = lower_bound(students.begin() + j + 1, students.end(), a) - students.begin();
+            long long a = -(students[i] + students[j]);
+            long long upper = upper_bound(students.begin() + j + 1, students.end(), a) - students.begin();
+            long long lower = lower_bound(students.begin() + j + 1, students.end(), a) - students.begin();
             cnt += (upper - lower);
         }
     }
