@@ -1,8 +1,8 @@
 #include <iostream>
-#include <vector>
 #include <algorithm>
 using namespace std;
-int m, n, t[100001], max_value = 0;
+int m, n;
+long long max_value = 0, t[100001], result=0;
 
 
 int main() {
@@ -11,22 +11,20 @@ int main() {
 		cin >> t[i];
 		max_value = max(max_value, t[i]);
 	}
-	int left = 0, right = max_value * m, mid=0;
+	long long left = 0, right = max_value * m, mid;
 	while (left <= right) {
 		mid = (left + right) / 2;
-		int mt = 0;
+		long double mt = 0;
 		for (int i = 0; i < n; i++) {
-			mt += mid / t[i];
+			mt += (mid / t[i]);
 		}
-		if (mt > m) {
+		if (mt >= m) {
 			right = mid - 1;
-		}
-		else if(mt < m) {
-			left = mid + 1;
+			result = mid;
 		}
 		else {
-			break;
+			left = mid + 1;
 		}
 	}
-	cout << mid;
+	cout << result;
 }
