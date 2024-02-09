@@ -1,37 +1,37 @@
 #include <iostream>
 #include <algorithm>
+#include <vector>
 using namespace std;
-int arr[1000001] = { 0 };
 
 int main() {
+	ios::sync_with_stdio(false);
+	cout.tie(0);
+	cin.tie(0);
 	int t;
 	int n, k;
 	cin >> t;
 	for (int i = 0; i < t; i++) {
 		cin >> n >> k;
-		int min_value = 1000001, cnt=0;
+		vector<int>v(n);
 		for (int j = 0; j < n; j++) {
-			cin >> arr[j];
+			cin >> v[j];
 		}
-		sort(arr, arr + n);
-		int de = -1;
+		sort(v.begin(), v.end());
 		int l = 0, r = n - 1;
-		while (arr[l] < arr[r]) {
-			int sum = arr[l] + arr[r];
-			if (abs(sum-k) == min_value) {
+		int result = 1e9, cnt = 0;
+		while (l < r) {
+			int sum = v[l] + v[r];
+			if (abs(sum - k) < abs(result-k)) {
+				cnt = 1;
+				result = sum;
+			}
+			else if (abs(sum - k) == abs(result-k)) {
 				cnt++;
 			}
-			else if (abs(sum-k) < min_value) {
-				cnt = 1;
-				min_value = abs(sum - k);
-			}
-			if (sum >= k) {
-				r--;
-			}
-			else if (sum < k) {
-				l++;
-			}
+			if (sum > k) r--;
+			else l++;
 		}
 		cout << cnt << endl;
 	}
+	return 0;
 }
