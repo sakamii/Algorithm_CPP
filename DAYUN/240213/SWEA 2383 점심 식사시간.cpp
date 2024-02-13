@@ -1,6 +1,4 @@
 
-//SWEA 2383 점심 식사시간
-
 #include<iostream>
 #include<queue>
 #include<algorithm>
@@ -50,7 +48,6 @@ int main(int argc, char** argv)
         }
 
 
-        //계단 리스트 1번 계단을 통해 가는 경우, 2번 계단을 통해 가는 경우
         int NPmul2 = 1;
         for(int i = 0; i < num_person; i++) {
             NPmul2 *= 2;
@@ -92,15 +89,9 @@ int main(int argc, char** argv)
             }
             
             result = min(result, max(tt[0], tt[1]) + 1);
-            // cout << endl;
-            // cout << tt[0] <<"," << tt[1] <<" ";
             
         }
-        //dfs
-
-
         cout << "#" << test_case << " " << result <<endl;
-
 	}
 	return 0;
 }

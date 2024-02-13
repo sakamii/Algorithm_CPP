@@ -34,8 +34,6 @@ int main(int argc, char** argv)
             r2 = r1;
             c2 = c1 + M;
             while(r2 < N) {
-                // result = max(run(r1, c1, r2, c2), result); 
-                // cout << result << " ";
                 if((c2 + M) > N) {
                     r2++;
                     if(r2 >= N) break;
@@ -43,7 +41,6 @@ int main(int argc, char** argv)
                 }
                 int r = run(r1, c1, r2, c2);
                 if(r > result ) {
-                    // cout << r <<endl;
                     result = r;
                 }
                 c2++;
@@ -59,12 +56,8 @@ int main(int argc, char** argv)
         cout << "#" << test_case << " " << result <<endl;
 
 	}
-	return 0;//정상종료시 반드시 0을 리턴해야합니다.
-}
-
+	return 0;
 int run(int r1, int c1, int r2, int c2) {
-    // cout << r1 <<"," << c1 << "," << r2 <<"," << c2  << " "; 
-
     int n = 1;
     for(int i = 0; i < M; i++) {
         n *= 2;
@@ -88,7 +81,5 @@ int run(int r1, int c1, int r2, int c2) {
         if(b1 <= C) maxSum1 = max(sum1, maxSum1);
         if(b2 <= C) maxSum2 = max(sum2, maxSum2);
     }
-    // cout << maxSum1 + maxSum2 << " ";
-    // cout << endl;
     return maxSum1 + maxSum2;
 }

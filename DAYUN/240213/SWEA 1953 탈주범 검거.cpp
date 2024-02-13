@@ -1,6 +1,3 @@
-// 1953. [모의 SW 역량테스트] 탈주범 검거
-// SWEA 1953 탈주범 검거
-
 #include<iostream>
 #include<cstring>
 #include<vector>
@@ -77,8 +74,7 @@ int main(int argc, char** argv)
 
         cout << "#" << test_case << " " << result <<endl;
 	}
-	return 0;//정상종료시 반드시 0을 리턴해야합니다.
-}
+	return 0;
 
 void make_tunnel_el() {
     tunnel_el_y[1] = {-1, 0, 1, 0};
