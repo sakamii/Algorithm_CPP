@@ -19,7 +19,6 @@ int main() {
     }
 
     maxt = maxt * m;
-    //binary search
     while (mint <= maxt) {
         long double mt = 0;
         long long midt = (maxt + mint) / 2;
@@ -36,11 +35,4 @@ int main() {
     }
 
     cout << result;
-
 }
-
-// 입국심사대개수 :1, 심사시간;1, 사람:10^9, maxt:10^9 
-
-// mt:10^27
-//long double + -  * (/ 안됨)
-//long long 으로 casting해야 하기 때문에 어처피 longlong 안됨 
