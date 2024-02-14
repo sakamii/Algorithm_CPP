@@ -31,7 +31,7 @@ int main() {
 					while (arr[i][j] == arr[i][idx]) idx++;
 					if (idx - j < x) garo = 0;
 				}
-				else if (arr[i][j] != arr[i][j - 1]) garo = 0;	// 2 이상일 때
+				else if (arr[i][j] != arr[i][j - 1]) garo = 0;	// 차이가 2 이상 일 때
 
 				// 세로 -----------------------------------------------------
 				if (arr[j][i] == arr[j - 1][i] + 1) {	// 현재가 위쪽보다 1 클 때
@@ -45,7 +45,7 @@ int main() {
 					while (arr[j][i] == arr[idx][i]) idx++;
 					if (idx - j < x) sero = 0;
 				}
-				else if (arr[j][i] != arr[j - 1][i]) sero = 0;
+				else if (arr[j][i] != arr[j - 1][i]) sero = 0;	// 차이가 2 이상 일 때
 			}
 			ans += garo + sero;
 		}
