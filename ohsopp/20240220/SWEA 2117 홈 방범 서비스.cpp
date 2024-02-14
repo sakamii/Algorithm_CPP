@@ -23,9 +23,9 @@
 ■ ■ ■ ■ ■
 □ ■ ■ ■ □
 □ □ ■ □ □
-
 이 때 중심부와의 맨해튼 거리가 3보다 작은 집(최대 2)의 위치는
 서비스 영역에 들어오게 된다.
+
 
 - 변수 네이밍
 ofs: 대각선 길이만큼 시작지점과 끝지점을 줄이기 위한 offset 값
@@ -33,7 +33,6 @@ ans: 문제에서 구하려는 값 (서비스 제공받는 최대 집의 수)
 cnt: 중심부 (i,j)에서 k일 때 서비스를 제공받는 집의 수, 초반 입력 변수로도 쓰임(그냥..)
 home: 집 위치들만을 저장한 배열
 */
-
 
 #include <iostream>
 #include <vector>
@@ -65,11 +64,11 @@ int main() {
 					cnt = 0;
 					int kk = -(k * k + (k - 1) * (k - 1));	// kk: k일 때 운영 비용
 					for (auto h : home)
-						if (abs(i - h.first) + abs(j - h.second) < k) {	// 해당 집이 서비스 영역에 들어오면
+						if (abs(i - h.first) + abs(j - h.second) < k) {	// 해당 집이 서비스 영역에 들어오면 운영 비용과 cnt 갱신
 							kk += m;
 							cnt++;
 						}
-					if (kk >= 0 && ans < cnt)
+					if (kk >= 0 && ans < cnt)	// '손해가 아니면서' ans보다 크다면 갱신
 						ans = cnt;
 				}
 		}
