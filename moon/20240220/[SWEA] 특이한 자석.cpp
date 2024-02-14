@@ -4,7 +4,6 @@
 #include<queue>
 using namespace std;
 
-
 /*
     우선 자석의 개수가 4개 밖에 없기 때문에 복잡한 알고리즘이 필요 없다고 생각
 
