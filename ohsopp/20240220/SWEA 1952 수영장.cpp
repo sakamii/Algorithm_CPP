@@ -12,6 +12,6 @@ int main(){
 			cin >> m;
 			dp[i] = min(dp[i - 1] + min(m * a, b), dp[i - 3] + c);
 		}
-    cout << "#" << tc << " " << min(d, dp[14]) << '\n';
+    		cout << "#" << tc << " " << min(d, dp[14]) << '\n';
 	}
 }
