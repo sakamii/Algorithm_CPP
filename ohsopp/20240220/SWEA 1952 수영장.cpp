@@ -3,7 +3,6 @@
 using namespace std;
 
 int t, a, b, c, d, m, dp[15];
-
 int main(){
 	cin >> t;
 	for (int tc = 1; tc <= t; tc++) {
