@@ -42,7 +42,7 @@ int main() {
 		}
 		
 		for (int i = 1, mul = 1; i <= 4; i++, mul *= 2)
-			ans += mul * ((mag[i] & (1 << 7)) > 0);
+			ans += mul * (mag[i] >> 7 & 1);
 
 		cout << "#" << tc << " " << ans << endl;
 		ans = 0;
