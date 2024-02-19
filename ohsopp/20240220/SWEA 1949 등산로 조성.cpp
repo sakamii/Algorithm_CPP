@@ -1,4 +1,9 @@
 
+/*
+ 최고 높이에서 dfs를 시작해야 하므로 입력 받을 때 높이별 좌표값들을 v에 저장
+ dfs 재귀를 두 개로 나누는데, (1)다음 위치가 현재보다 낮은 경우와 (2)아직 높이를 안 깎았다면 다음 위치의 높이를 깎는 dfs로 진행
+*/
+
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -14,14 +19,14 @@ void dfs(int x, int y, int h, int d, bool cut) {
     for (int i = 0; i < 4; i++) {
         int nx = x + dx[i], ny = y + dy[i];
         if (!nx || !ny || nx > n || ny > n || vis[nx][ny]) continue;
- 
-        if (arr[nx][ny] < h) {
+
+        if (arr[nx][ny] < h) {    (1) 다음 위치가 현재보다 낮은 경우 => 평범하게 탐색
             vis[nx][ny] = 1;
             dfs(nx, ny, arr[nx][ny], d + 1, cut);
             vis[nx][ny] = 0;
         }
  
-        if (!cut && arr[nx][ny] >= h && arr[nx][ny] - k < h) {
+        if (!cut && arr[nx][ny] >= h && arr[nx][ny] - k < h) {  (2) 다음 위치가 현재보다 높으면서, 깎을 수 있는 높이가 현재보다 낮고, 아직 안 깎았다면 깎고 탐색
             vis[nx][ny] = 1;
             dfs(nx, ny, arr[x][y] - 1, d + 1, true);
             vis[nx][ny] = 0;
