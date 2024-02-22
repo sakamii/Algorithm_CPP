@@ -14,6 +14,7 @@
 #include<iostream>
 #include<algorithm>
 #include<cstring>
+#include<vector>
 
 using namespace std;
 
@@ -28,11 +29,13 @@ int direction_map[6][4] = {
     {0, 1, 2, 3}, //상하좌우
     {1, 3, 0, 2}, //하우상좌
     {3, 0, 1, 2}, //우상하좌
-    {2, 0, 3 ,1}, //좌상우하
+    {2, 0, 3, 1}, // 좌상우하
     {1, 2, 3, 0}, //하좌우상
     {1, 0, 3, 2}  //하상우좌
 };
 int wormhole[5][4];
+vector<pair<int, int>> temp;
+vector<pair<int, int>> temp2;
 
 int run(int y, int x, int dir);
 
@@ -78,14 +81,45 @@ int main(int argc, char** argv)
             // cout << cnt++;
             for (int j = 0; j < n; j++) {
                 // cout << cnt++;
+                if(map[i][j] != 0) continue;
                 for (int dir = 0; dir < 4; dir++) {
-                    if (!visited[i][j][dir]) {
-                        result = max(result, run(i, j, dir));
+                    
+                    // temp.clear();
+                    if(((i + ydir[dir]) >= 0) && ((i+ ydir[dir]) < n) && ((j + xdir[dir]) >= 0) && ((j + xdir[dir]) < n))
+                    { 
+                        if(map[i+ ydir[dir]][j + xdir[dir]] > 0) {
+                            result = max(result, run(i, j, dir));
+                        }
+                    }   
+
+                    // if(result > run(i, j, dir)) {
+                    //     temp2.clear();
+                    //     cout << result << " ";
+                    //     for(pair<int, int> i : temp) {
+                    //         temp2.push_back(i);
+                    //     }
+                    // }
+                    
+                    
+                    //if (!visited[i][j][dir]) {
+
                         // cout << result << " ";
-                    }
+                    //}
                 }
             }
         }
+
+        if(result == 0) {
+            for(int i = 0; i < n; i++) {
+                if((map[i][0] == 0) || (map[0][i] == 0) || (map[n - 1][i] == 0) || (map[i][n - 1] == 0)) {
+                    result = 1;
+                }
+            }
+        }
+        // for(pair<int, int> i : temp2) {
+        //     cout << i.first << "," << i.second << " ";
+        // }
+
 
         cout << "#" << test_case << " " << result << endl;
     }
@@ -94,8 +128,10 @@ int main(int argc, char** argv)
 
 int run(int y, int x, int dir) {
     int result = 0;
-    int i = x;
-    int j= y;
+    int i = y;
+    int j = x;
+
+
     do {
         //벽에 부딪힌 경우
         //if(flag) cout << i << j << " ";
@@ -111,26 +147,27 @@ int run(int y, int x, int dir) {
             dir = direction_map[5][dir];
             i += ydir[dir];
             j += xdir[dir];
-            continue;
+            if((i == y) && (j == x)) return result;
         }
-        else {
-            int m = map[i][j];
-            if (m == -1) return result;
-            else if (m > 5) {
-                if (i == wormhole[m - 6][0]) {
-                    i = wormhole[m - 6][2];
-                    j = wormhole[m - 6][3];
-                }
-                else {
-                    i = wormhole[m - 6][0];
-                    j = wormhole[m - 6][1];
-                }
+
+        int m = map[i][j];
+        if (m == -1) return result;
+        else if (m > 5) {
+            if (i == wormhole[m - 6][0]) {
+                i = wormhole[m - 6][2];
+                j = wormhole[m - 6][3];
             }
             else {
-                dir = direction_map[m][dir];
+                i = wormhole[m - 6][0];
+                j = wormhole[m - 6][1];
             }
+            continue;
         }
-        visited[i][j][dir] = true;
+        else if (m > 0) {
+            result++;
+            dir = direction_map[m][dir];
+        }
+        //visited[i][j][dir] = true;
 
 
     } while ((i != y) || (j != x));
