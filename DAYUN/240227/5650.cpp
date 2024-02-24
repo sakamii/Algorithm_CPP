@@ -8,8 +8,7 @@
 */
 /*
     요구한 대로 구현
-    모두 돌아다니면서 check
-    공이 지나쳐간 자리,방향는 check 안함 : visited
+    0일떄 근처 방향에 벽이 있다면 
 */
 #include<iostream>
 #include<algorithm>
@@ -19,8 +18,7 @@
 using namespace std;
 
 int n;
-int map[100][100];
-bool visited[100][100][4] = { false };
+int map[101][101];
 //상하좌우
 int ydir[4] = { -1, 1, 0, 0 };
 int xdir[4] = { 0, 0, -1, 1 };
@@ -56,12 +54,6 @@ int main(int argc, char** argv)
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 cin >> map[i][j];
-                if (map[i][j] != 0) {
-                    memset(visited[i][j], true, 4);
-                }
-                else {
-                    memset(visited[i][j], false, 4);
-                }
                 if (map[i][j] > 5) {
                     int hole_num = map[i][j] - 6;
                     if (wormhole[hole_num][0] != -1) {
@@ -78,33 +70,16 @@ int main(int argc, char** argv)
 
         int cnt = 0;
         for (int i = 0; i < n; i++) {
-            // cout << cnt++;
             for (int j = 0; j < n; j++) {
-                // cout << cnt++;
                 if(map[i][j] != 0) continue;
                 for (int dir = 0; dir < 4; dir++) {
-                    
-                    // temp.clear();
                     if(((i + ydir[dir]) >= 0) && ((i+ ydir[dir]) < n) && ((j + xdir[dir]) >= 0) && ((j + xdir[dir]) < n))
                     { 
-                        if(map[i+ ydir[dir]][j + xdir[dir]] > 0) {
+                        if((map[i+ ydir[dir]][j + xdir[dir]] < 6) && (map[i+ ydir[dir]][j + xdir[dir]] > 0) && (direction_map[map[i+ ydir[dir]][j + xdir[dir]]][dir] != direction_map[5][dir])) {
                             result = max(result, run(i, j, dir));
                         }
-                    }   
-
-                    // if(result > run(i, j, dir)) {
-                    //     temp2.clear();
-                    //     cout << result << " ";
-                    //     for(pair<int, int> i : temp) {
-                    //         temp2.push_back(i);
-                    //     }
-                    // }
-                    
-                    
-                    //if (!visited[i][j][dir]) {
-
-                        // cout << result << " ";
-                    //}
+                    }
+                    //출발 후 바로 벽에 부딪히는 경우는 무조건 result가 1 이 경우에는 다음에 result가 0일떄 따로 계산해준다.
                 }
             }
         }
@@ -116,10 +91,6 @@ int main(int argc, char** argv)
                 }
             }
         }
-        // for(pair<int, int> i : temp2) {
-        //     cout << i.first << "," << i.second << " ";
-        // }
-
 
         cout << "#" << test_case << " " << result << endl;
     }
@@ -131,15 +102,9 @@ int run(int y, int x, int dir) {
     int i = y;
     int j = x;
 
-
     do {
-        //벽에 부딪힌 경우
-        //if(flag) cout << i << j << " ";
-
         i += ydir[dir];
         j += xdir[dir];
-        //cout << i << j << dir << " ";
-
 
         if ((i < 0) || (i >= n) || (j < 0) || (j >= n)) {
             result++;
@@ -167,10 +132,6 @@ int run(int y, int x, int dir) {
             result++;
             dir = direction_map[m][dir];
         }
-        //visited[i][j][dir] = true;
-
-
     } while ((i != y) || (j != x));
-
     return result;
 }
