@@ -34,7 +34,6 @@ int main(int argc, char** argv)
        
        while(ve.size() > 0) {
            queue<pair<int, int>> q;
-            cout << ve.size() << " ";
             for(vector<edge>::iterator it = ve.begin(); it != ve.end(); it++) {
                 it->y += ydir[it->dir];
                 it->x += xdir[it->dir];
