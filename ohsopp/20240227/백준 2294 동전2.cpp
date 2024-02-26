@@ -5,6 +5,7 @@ using namespace std;
 int n, k, c, d[10010];
 
 int main(){
+    
     cin >> n >> k;
     fill(d + 1, d + k + 1, 1e5);
 
