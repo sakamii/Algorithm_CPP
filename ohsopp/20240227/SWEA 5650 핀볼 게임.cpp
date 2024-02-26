@@ -1,6 +1,4 @@
 
-https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AWXRF8s6ezEDFAUo
-
 /*
 - 사고 과정:
 dfs 탐색하면서 정해진 방향으로만 쭉 가면 시간 초과 날 것으로 예상.
