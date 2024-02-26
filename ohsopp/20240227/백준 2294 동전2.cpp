@@ -33,7 +33,7 @@ int main(){
 
     while (n--) {
         cin >> c;
-        for(int i = c; i <= k; i++)
+        for(int i = c; i <= k; i++)    // 동전 개수에 제약이 없으므로 bottom-up 방식으로 설계
             d[i] = min(d[i], d[i - c] + 1);
     }
     cout << (d[k] < 1e5 ? d[k] : -1);
