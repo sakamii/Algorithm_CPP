@@ -1,5 +1,6 @@
 
 // https://www.acmicpc.net/problem/23061
+// notion에 작성
 
 #include <iostream>
 #define ll long long
