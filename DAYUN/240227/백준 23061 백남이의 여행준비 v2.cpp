@@ -53,7 +53,6 @@ int main() {
     for(int i = 0; i < m; i++) {
         //double로 연산
         double now =  (double)result[n][bags[i]] / (double)bags[i];
-        cout << (double)now << " ";
         if(effectivity < now) {
             effective_bag_num = i;
             effectivity = now;
