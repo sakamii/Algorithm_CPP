@@ -1,7 +1,13 @@
+
+
 //SWEA 5650 핀볼게임
+
 #include<iostream>
+
 #include<algorithm>
+
 #include<cstring>
+
 #include<vector>
 
 using namespace std;
@@ -63,13 +69,12 @@ int main(int argc, char** argv)
                 }
             }
         }
-        
+
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= n; j++) {
-                if((map[i][j] <= 0) || (map[i][j] > 5)) continue;
-                for (int dir = 0; dir < 4; dir++) {
-                    if(map[i+ ydir[dir]][j + xdir[dir]] == 0) {
-                        result = max(result, run(i+ ydir[dir], j + xdir[dir], direction_map[5][dir]));
+                if (map[i][j] == 0) {
+                    for (int dir = 0; dir < 4; dir++) {
+                        result = max(result, run(i, j, direction_map[5][dir]));
                     }
                 }
             }
@@ -85,24 +90,23 @@ int run(int y, int x, int dir) {
     int i = y;
     int j = x;
 
-    while(true) {
+    while (true) {
         //방향으로 한칸 간다
         i += ydir[dir];
         j += xdir[dir];
         //방향 바뀐지 확인
         int block = map[i][j];
 
-        if(((i == y) && (j == x)) || (block == -1)) {
+        if (((i == y) && (j == x)) || (block == -1)) {
             break;
         }
 
-        if((block != 0) && (block <= 5)) {
+        if ((block != 0) && (block <= 5)) {
             dir = direction_map[block][dir];
             result++;
         }
-        else if(block > 5) {
+        else if (block > 5) {
             if ((i == wormhole[block - 6][0]) && (j == wormhole[block - 6][1])) {
-                // cout << i << "," << j << " ";
                 i = wormhole[block - 6][2];
                 j = wormhole[block - 6][3];
             }
@@ -110,7 +114,7 @@ int run(int y, int x, int dir) {
                 i = wormhole[block - 6][0];
                 j = wormhole[block - 6][1];
             }
-        } 
+        }
     }
     return result;
 }
