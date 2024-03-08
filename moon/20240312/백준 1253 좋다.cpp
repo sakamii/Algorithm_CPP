@@ -90,7 +90,8 @@ using namespace std;
 	two pointer
 	대놓고 투포인터 쓰라고 광고하는 문제
 	start, end 시작 index 설정이 어려웠음
-	이문제의 경우 이진탐색보다 빠름 
+	이문제의 경우 이진탐색보다 빠름
+	2156KB, 12ms
 */
 
 vector<int> v;
