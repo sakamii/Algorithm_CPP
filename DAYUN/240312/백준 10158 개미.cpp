@@ -35,18 +35,17 @@ int main() {
     //1. 오른쪽위 
     //가로, 세로
     int time = 0;
-    int t = 0;
-    int direction = 45;
-    int dagaksun = min(h, w);
+    int direction = 1;
+    int dagaksun = min(h, w) * 2;
     bool flag = false;
+
     while(true) {
         //direction(45);
         int y_d = h - 1 - y;
         int x_d = w - 1 - x;
         int prev_x = x;
         int prev_y = y;
-        int prev_time = time;
-        
+        int t = 0;
         switch(direction) {
             case 1 :  
                 //오른쪽 위 1
@@ -54,34 +53,40 @@ int main() {
                     t = x_d;
                     y -= x_d;
                     x += x_d;
+                    //왼쪽 위
                     direction = 2;
                 }
-                else if(x_d > y){
+                else if(x_d >= y){
                     t = y;
                     y = 0;
                     x += y;
+                    //오른쪽 아래
                     direction = 3;
                 }
-                else {
+                if(x_d == y){
                     flag = true;
+                    //왼쪽 아래 
+                    direction = 4;
                 }
                 break;
             case 2 : 
                  //왼쪽 위 2
                 if(y < x) {
+                    t = y;
                     x -= y;
                     y = 0;
-                    t = y;
                     direction = 4;
                 }
-                else if(y > x){
+                else if(y >= x){
                     x = 0;
                     y -= x;
                     t = x;
                     direction = 1;
                 }       
-                else {
+                if(x == y){
                     flag = true;
+                    //오른쪽 아래 
+                    direction = 3;
                 }
                 break;
             case 3 :
@@ -91,7 +96,7 @@ int main() {
                     y += x_d;
                     t = x_d;
                     //왼쪽 아래 
-                    direction = 4;
+                    direction = 2;
                 }
                 else if(y_d < x_d) {
                     x += y_d;
@@ -99,8 +104,10 @@ int main() {
                     t = y_d;
                     direction = 2;
                 }
-                else {
+                if(y_d == x_d){
                     flag = true;
+                    //왼쪽 위
+                    direction = 2;
                 }
                 break;
             case 4: 
@@ -112,31 +119,40 @@ int main() {
                     //왼쪽 위
                     direction = 2;
                 }
-                else if(y_d > x) {
+                else if(y_d >= x) {
                     y += x;
                     x = 0;
                     t = x;
                     //오른쪽 아래
                     direction = 3;
                 }
-                else {
-                    
+                if(y_d == x){
                     flag = true;
+                    //오른쪽 위
+                    direction = 1;
                 }
                 break;
         }
-
-        if(end_time <= (prev_time + t)) {
+        cout << x << "," << y << "," << time << "," << t << endl;
+        
+        if(end_time <= (time + t)) {
             //time 
             int i = (y - prev_y) / t;
             int j = (x - prev_x) / t;
-            y = prev_y + (i * (end_time - prev_time));
-            x = prev_x + (i * (end_time - prev_time));
+            y = prev_y + (i * (end_time - time));
+            x = prev_x + (i * (end_time - time));
+            cout << x << ",." << y << " ";
             break;
         }
 
+        time += t;
         if(flag = true) {
-
+            int rest_time = (end_time - time ) % dagaksun; 
+            //if(rest_time < dagaksum  / 2) continue;
+            end_time = time + end_time; 
+            if(rest_time >= (dagaksun / 2)) {
+                end_time = dagaksun - rest_time;
+            }
         }
     }   
 }
