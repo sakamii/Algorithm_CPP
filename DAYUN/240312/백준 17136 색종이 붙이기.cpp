@@ -1,11 +1,13 @@
 /*
     방법
     1. 모든 가능한 사각형 을 저장한다
-    2. 1이 나온다.
-    2.1 모든 가능한 경우의 수를 처리 (1부터) -> 0으로
-    2.1.1 다음 0을 찾는다.
-    2.
+    2. 탐색 하며 1인 경우 가능한 색종이를 모두 dfs로 탐색한다.
+    2.1 탐색한 색종이는 0으로 처리한다 (cover함수)
+    2.2 만약 모든 1을 0으로 만들었다면 (numblock = 0) 리턴한다.
+    2.3 리턴하면서 탐색한 색종이를 다시 1로 만든다(discover)
 
+
+    테스트케이스만 맞고 22% 틀렸다고 나옴
 */
 
 #include <iostream>
@@ -23,13 +25,6 @@ int numPaper = 0;
 int result = 101;
 
 void cover(int i, int j, int k) {
-    // for (int x = 0; x <= k; x++) {
-    //     paper[i + k][j + x] = 0;
-    // }
-
-    // for (int y = 0; y < k; y++) {
-    //     paper[i + y][j + k] = 0;
-    // }
     for (int y = i; y <= i + k; y++) {
         for (int x = j; x <= j + k; x++) {
             paper[y][x] = 0;
