@@ -13,6 +13,11 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
+    //소프티어에서 잊지 않기!!
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
     int n, q;
     cin >> n >> q;
 
