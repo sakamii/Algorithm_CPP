@@ -20,6 +20,7 @@ int visited[25][25];
 int ydir[] = {-1, 1, 0, 0};
 int xdir[] = {0, 0, -1, 1};
 int num_route = 0;
+vector<>
 
 int main() {
 
@@ -40,12 +41,9 @@ int main() {
         }
     }
 
-    int a = -1, b = -1;
-    
-
-
     //시작점 잡기
     //한붓그리기
+    a = -1, b = -1;
     for(int i = 0; i < h; i++) {
         for(int j = 0; j < w; j++) {
             int link = 0;
@@ -80,7 +78,9 @@ int main() {
         }
     }
 
-    //모든 점에서 
+    //직진을 많이 할 수 록 좋다.
+    visited[a][b] = 0;
+    
     
 
     
