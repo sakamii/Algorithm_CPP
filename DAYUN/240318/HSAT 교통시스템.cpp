@@ -24,7 +24,8 @@ vector<pair<int, int>> signal[13] ={
     {{0, -1}, {1, -1}},
     {{1, 0}, {1, 1}},
     {{0, 1}, {1, 1}},
-    {{-1, 0}, {-1, -1}},
+    {{-1, 0}, {-1, 1}},
+    {{-1, -1}, {0, -1}},
     {{1, -1}, {1, 0}}
 };
 
@@ -37,5 +38,18 @@ int main() {
         }
     }
 
-    
+    int idx = 0;
+    stack<pair<int, int>> st;
+    //처음 진입
+    for(int i = 0; i < road[0][0][])
+
+
+
+
+    while(!st.empty()) {
+        int y = st.top().first;
+        int x = st.top().second;
+
+
+    }
 }
