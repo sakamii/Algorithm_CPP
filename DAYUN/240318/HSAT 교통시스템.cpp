@@ -16,75 +16,70 @@ struct route
     int t;
 };
 
-int ydir[] = { 0, -1, 0, 1 };
-int xdir[] = { 1, 0, -1, 0 };
+int ydir[] = { 1, 0, -1, 0 };
+int xdir[] = { 0, 1, 0, -1 };
 
 int road[100][100][4];
-int routes[100];
+bool visited[100][100];
 
 vector<int> signals[13] = {
     {},
-    {1, 0, 3},
     {2, 1, 0},
-    {1, 2, 3},
+    {3, 2, 1},
     {2, 3, 0},
+    {3, 0, 1},
+    {2, 1},
+    {3, 2},
+    {3, 0},
     {0, 1},
-    {1, 2},
+    {1, 0},
+    {2, 1},
     {2, 3},
-    {0, 3},
-    {0, 3},
-    {0, 1},
-    {1, 2},
-    {2, 3} };
+    {3, 0} };
 
 int result = 0;
 int n, t;
 
-void dfs(int y, int x, int dir, int num_route, int tt, int route);
+void dfs(int y, int x, int dir, int tt);
 
 int main()
 {
     cin >> n >> t;
     for (int i = 0; i < n; i++)
     {
-        for (int j = 0; j < t; j++)
+        for (int j = 0; j < n; j++)
         {
             cin >> road[i][j][0] >> road[i][j][1] >> road[i][j][2] >> road[i][j][3];
         }
     }
 
-    dfs(0, 0, 2, 1, 0, 0);
+    visited[0][0] = true;
+    dfs(0, 0, 2, 0);
+
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (visited[i][j]) {
+                result++;
+            }
+        }
+    }
     cout << result;
 }
 
-void dfs(int y, int x, int dir, int num_route, int tt, int route)
+void dfs(int y, int x, int dir, int tt)
 {
-    cout << tt << ":" << y << " " << x << endl;
-    if (road[y][x][t % 4] / 4 != dir || (tt == t)) {
-        result = max(result, num_route);
+    if (road[y][x][tt % 4] % 4 != dir || (tt == t)) {
         return;
     }
 
-    for (int signal : signals[road[y][x][t % 4]])
+    for (int signal : signals[road[y][x][tt % 4]])
     {
         int nexty = y + ydir[signal];
         int nextx = x + xdir[signal];
-        bool flag = false;
         if ((nexty >= 0) && (nexty < n) && (nextx >= 0) && (nextx < n))
         {
-            for (int i = 0; i < route; i++) {
-                if (routes[i] == (nexty * 100 + nextx)) {
-                    flag = true;
-                    break;
-                }
-            }
-            routes[route] = nexty * 100 + nextx;
-            if (flag) { dfs(nexty, nextx, signal, num_route, tt + 1, route + 1); }
-            else { dfs(nexty, nextx, signal, num_route, tt + 1, route + 1); }
-               
+            visited[nexty][nextx] = true;
+            dfs(nexty, nextx, signal, tt + 1);
         }
     }
-
-    result = max(result, num_route);
-
 }
