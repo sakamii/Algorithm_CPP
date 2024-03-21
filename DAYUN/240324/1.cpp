@@ -68,18 +68,20 @@ int main(int argc, char** argv)
    return 0;
 }
 
-void dfs(int level, int result){
-    for(int i : v[level]) {
-        for(int j = level + 1; j < n; j++) {
-            if((i >> j) & 1) {
-                visited[i] = true;
-            }
+void dfs(int result, int visited){
+    int i ;
+    for(i = 0; i < n; i++) {
+        if(!((visited >> i) & 1)) {
+            
         }
+    }
 
-        bool flag = false;
+    for(int i : v[level]) {
+        int next_visited = visited | i;
+
         for(int j = 0; j < n; j++) {
-            if(!visited[j]) {
-                dfs(level, result + 1);
+            if(i ) {
+                dfs(level, result + 1, nextvi);
                 flag = true;
                 break;
             }
