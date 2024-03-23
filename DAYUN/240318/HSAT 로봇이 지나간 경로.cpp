@@ -1,12 +1,3 @@
-/*
-    글렀다
-    IDEA :
-        1. 시작점 찾기
-        1.1 홀수이면 무조건 시작점(한붓그리기)
-        1.2 짝수이면 어디든 시작점이 될 수 있다.
-        1.2.1 짝수이면 왼쪽 위에서 시작
-*/
-
 #include <iostream>
 #include <vector>
 #include <stack>
