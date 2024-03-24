@@ -6,7 +6,7 @@
 using namespace std;
 
 int map[15][20];
-vector<vector<pair<int, int>>> v;
+vector<vector<int>> v;
 int n, m;
 
 void dfs(int result, int visited);
@@ -50,21 +50,13 @@ int main(int argc, char** argv)
         }
 
         if (flag) {
-            int cnt = 0;
-            int k = -1;
             for (int j = 0; j < n; j++) {
-                cnt++;
                 if ((i >> j) & 1) {
-                    if(k == -1) k = j;
-                    cnt++;
+                    v[j].push_back(i);
+                    break;
                 }
             }
-            v[k].push_back({cnt, i});
         }
-    }
-
-    for(int i = 0; i < n; i++) {
-        sort(v[i].begin(), v[i].end());
     }
 
     dfs(0, 0);
@@ -88,9 +80,8 @@ void dfs(int result, int visited) {
         return;
     }
 
-    for (pair<int, int> p : v[i]) {
-        int j = p.second;
-        // int next_visited = visited | j;
+    for (int j : v[i]) {
+        int next_visited = visited | j;
         dfs(result + 1, visited | j);
     }
 }
