@@ -48,12 +48,13 @@ int score(int level, int y, int x){
 
     queue<pair<int, int>> q;
     q.push({y, x});
+    erase[y][x] = true;
+    //주변에 같은 숫자 check
     while(!q.empty()) {
         y = q.front().first;
         x = q.front().second;
         q.pop();
         r++;
-        erase[y][x] = true;
 
         minx = min(x, minx);
         maxx = max(x + 1, maxx);
@@ -64,18 +65,21 @@ int score(int level, int y, int x){
             int nextx = x + xdir[i];
             
             if((nexty >= 0) && (nexty < n) && (nextx >= 0) && (nextx < n)) {
-                if((newMap[level][y][x] == color) && (!erase[nexty][nextx])) {
+                if((newMap[level][nexty][nextx] == color) && (!erase[nexty][nextx])) {
+                    erase[nexty][nextx] = true;
                     q.push({nexty, nextx});
                 }
             }
         }
-
     }
 
-    if(level != 2) {
+    if(level != 0 ) {
         for(int i = 0; i < n; i++) {
             for(int j = 0; j < n; j++) {
-                
+                if(erase[i][j]) {
+                    int change = i - 1;
+                    while()
+                }
             }
         }
     }
