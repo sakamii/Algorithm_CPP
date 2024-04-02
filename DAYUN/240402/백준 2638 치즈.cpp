@@ -10,6 +10,8 @@ queue<pair<int, int>> q;
 queue<pair<int, int>> erase_q;
 int cnt = 0;
 
+void dfs(int y, int x);
+
 int main(){
     int n, m;
     cin >> n >> m;
@@ -61,7 +63,17 @@ int main(){
 
     int t = 0;
     while(true){
+        // cout << "\n";
+        // for(int i = 0; i < n; i++) {
+        //     for(int j = 0; j < m; j++) {
+        //         cout << map[i][j] << " ";
+        //     }
+        //     cout << "\n";
+        // }
+        
+        if(cheese_num <= 0) break;
         t++;
+
         for(int i = 0; i < n; i++) {
             for(int j = 0; j < m; j++) {
                 int air = 0;
@@ -83,7 +95,6 @@ int main(){
 
 
 
-        if(cheese_num <= 0) break;
 
         while(!erase_q.empty()){
             map[erase_q.front().first][erase_q.front().second] = 0;
@@ -98,10 +109,10 @@ int main(){
             q.pop();
             // false : 0으로 바꾸기 true 계속 빈공간
             bool flag = false;
+            if(hole[y][x]) continue;
             if(hole[y - 1][x] || hole[y + 1][x] || hole[y][x - 1] || hole[y][x + 1]) {
-                hole[y][x] = true;
-                map[y][x] = 0;
-            }
+                dfs(y, x);
+            } 
             else {
                 q.push({y, x});
             }
@@ -110,3 +121,12 @@ int main(){
 
     cout << t << endl; 
 }
+
+void dfs(int y, int x) {
+    map[y][x] = 0;
+    hole[y][x] = true;
+    if(map[y - 1][x] == 2) dfs(y - 1, x);
+    if(map[y + 1][x] == 2) dfs(y + 1, x);
+    if(map[y][x - 1] == 2) dfs(y, x - 1);
+    if(map[y][x + 1] == 2) dfs(y, x + 1);
+} 
