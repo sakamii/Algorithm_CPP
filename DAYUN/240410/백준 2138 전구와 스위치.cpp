@@ -7,16 +7,15 @@ using namespace std;
 const int MAX = 200000;
 
 //ll last lignt nl next light
-char ll[100000], nl[100000];
-char ll_copy[100000];
+char ll[100002], nl[100002];
+char ll_copy[100002];
 int n;
 
-int cal(char *list, int s);
+int cal(char *list);
 
 int main(){
     cin >> n;
     int result = MAX;
-
 
     cin >> ll;
     cin >> nl;
@@ -24,10 +23,9 @@ int main(){
     memcpy(ll_copy, ll, sizeof(char) * n);
     ll_copy[0] = (ll_copy[0] == '0') ? '1' : '0';
     ll_copy[1] = (ll_copy[1] == '0') ? '1' : '0';
-    result = min(result, 1 +  cal(ll_copy, 0));
+    result = min(result, 1 +  cal(ll_copy));
 
-    //3자리만 사용하는 경우 
-    result = min(result, cal(ll, 0));
+    result = min(result, cal(ll));
 
     if(result == MAX) result = -1;
     cout << result;
@@ -35,9 +33,9 @@ int main(){
 
 }
 
-int cal(char *list, int s){
+int cal(char *list){
     int result = 0;
-    for(int i = s; i < (n - 2); i++) {
+    for(int i = 0; i < (n - 1); i++) {
         if(nl[i] != list[i]) {
             result++;
             list[i + 1] = (list[i + 1] == '0') ? '1' : '0';
@@ -45,13 +43,8 @@ int cal(char *list, int s){
         }
     }
 
-    if(list[n - 2] == nl[n - 2] && list[n - 1] == nl[n - 1]) {
-        return result;
-    }
-    else if(list[n - 2] != nl[n - 2] && list[n - 1] != nl[n - 1])  {
-        return result + 1;
-    }
-    else {
+    if(list[n - 1] != nl[n -1]) {
         return MAX;
     }
+    return result;
 }
