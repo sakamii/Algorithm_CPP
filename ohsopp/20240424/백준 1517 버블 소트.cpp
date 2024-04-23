@@ -54,7 +54,7 @@ long long ans;
 
 void merge(int s, int e) {
 	int mid = (s + e) / 2;
-  // lidx: 왼쪽 배열 인덱스,  ridx: 오른쪽 배열 인덱스,  idx: 정렬된 배열 인덱스
+  // lidx: 왼쪽 배열 인덱스,  ridx: 오른쪽 배열 인덱스,  idx: 정렬될 배열 인덱스
 	int lidx = s, ridx = mid + 1, idx = s;
 	long long cnt = 0;
 
