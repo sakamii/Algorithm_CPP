@@ -1,70 +1,83 @@
-
-/*
-    5, 2, 2
-    숫자 들어가고
-    수의 변경
-    구간 곱으 ㄹ구하느 횟수
-
-*/
-
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
-const int SIZE = 1 << 21;
-const int LEN = 1 << 20;
-//node
-int tree[SIZE] = { 0 };
+const unsigned int MAX = 1 << 31;
 
+unsigned int memo[501][501];
+unsigned int matrix[501][2];
 
-void update(int b, int c);
-void init(int n);
-int  getMul(int b, int c, int s, int e, int i);
+int devide_conquer(int s, int e);
 
 int main(){
+    int n;
+    cin >> n;
+    fill(&memo[0][0], &memo[n - 1][n], MAX);
+    for(int i = 0; i < n; i++) {
+        cout << memo[i][i];
+    }
+    for(int i = 0; i < n; i++) {
+        cin >> matrix[i][0] >> matrix[i][1];
+    }
+    // fill(&matrix[0][0], &matrix[n][0], 1);
 
-    int n, m, k;
-    int i;
-    int a, b, c;
+    for(int i = 0; i < n; i++) {
+        memo[i][i + 1] = matrix[i][0] * matrix[i][1]  * matrix[i + 1][1];
+    }
     
-    init(n);
-    for(i = 0; i < m; i++) {
-        cin >> a >> b >> c;
-        if(a == 1) {
-            update(b, c);
-        }
-        else if(a == 2) {
-            cout << getMul(b, c, 0, LEN, 1) << "\n";
-        }
+    if( n == 1) {
+        cout << matrix[0][0] * matrix[0][1];
+        return 0;
     }
 
+    cout <<  devide_conquer(0, n - 1) << endl;
+
+    // for(int i = 0; i < n; i++) {
+    //     for(int j = 0; j < n; j++){
+    //         if(memo[i][j] != MAX)
+    //              cout << memo[i][j] << " ";
+    //     }
+    //     cout << endl;
+    // }
+    // cout <<  devide_conquer(0, n - 1) << endl;
+    
 
 }
 
+int devide_conquer(int s, int e) {
+    if(memo[s][e] != MAX)
+        return memo[s][e];
+    
+    unsigned int dc = MAX;
+    unsigned int temp = matrix[s][0] * matrix[s][1] * matrix[e][1]; 
+    if(memo[s + 1][e] != MAX) {
+        temp += memo[s + 1][e];
+    }
+    else {
+        temp += devide_conquer(s + 1, e);
+    }
+    dc = temp;
 
-void init(int n) {
-    int i;
-    for(i = 0; i < n; i++) {
-        cin >> tree[LEN + i]; 
+    temp = matrix[s][0] * matrix[e][0] * matrix[e][1]; 
+    if(memo[s][e - 1] != MAX) {
+        temp += memo[s][e - 1];
+    }
+    else {
+        temp += devide_conquer(s, e - 1);
+    }
+    dc = min(dc, temp);
+
+    if(s + 1 == e) return memo[s][e];
+
+    for(int i = s + 2; i < (e - 1); i++) {
+        temp = matrix[s][0] * matrix[i][0] * matrix[i][1] + matrix[i][0] * matrix[i][1] * matrix[e][1];
+        temp += memo[s][i - 1];
+        temp += memo[i + 1][e];
+
+        dc = min(dc, temp);
     }
 
-    for(i = (LEN + n) / 2; i > 0; i--) {
-        tree[i] = tree[i * 2] * tree[i * 2 + 1];
-    }
-}
-
-void update(int b, int c){
-    b += LEN;
-    tree[b] = c;
-    b /= 2;
-    while(b > 0) {
-        tree[b] = tree[b * 2] * tree[b * 2 + 1];
-        b /= 2;
-    }
-}
-
-int getMul(int b, int c, int s, int e, int i) {
-    if(b <= s && c >= e) return tree[i];
-    if(e < b || s > c) return 1;
-    return getMul(b, c, s, (s + e) / 2, i * 2) * getMul(b, c, (s + e) / 2 + 1, e, i * 2 + 1);
+    memo[s][e] = dc;
+    return dc;
 }

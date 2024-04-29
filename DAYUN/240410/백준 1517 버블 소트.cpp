@@ -43,7 +43,6 @@ int next_bigger(int idx, int s, int e, int ts, int te, int target){
     if(tree[idx].second <= target) return 0;
     int mid = (s + e) / 2; 
     // return next_bigger(idx * 2, s, mid)
-    
 }
 
 int nn()
