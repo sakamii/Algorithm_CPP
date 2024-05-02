@@ -29,7 +29,7 @@ int main() {
     cin.tie(NULL);
     cout.tie(NULL);
 
-    int T;
+    int T = 1;
     cin >> T;
 
     for (int test_case = 1; test_case <= T; ++test_case) {
@@ -55,14 +55,30 @@ int main() {
 }
 
 int robot(int y, int x) {
+    // if (y == 3 && x == 4) {
+    //     cout << 1 << "\n";
+    // }
     int result = 0;
     for (int i = 0; i < 4; i++) {
         if (map[y + dir_y[i]][x + dir_x[i]] == 0) {
             fill(harvest_map[0], harvest_map[9], NOT_HARVEST);
-            harvest_map[y][x] = 5;
-            result = max(result, robot_dir(y + dir_y[i], x + dir_x[i], i));
+            // harvest_map[y][x] = 4;
+            result = max(result, robot_dir(y, x, i));
         }
     }
+    // if (y == 3 && x == 4) {
+    //     for(int i = 0; i < N; i++) {
+    //         for(int j = 0; j < N; j++) {
+    //             cout << harvest_map[i][j] << " ";
+    //         }
+
+    //         cout << endl;
+    //     }
+    // }
+
+    // if (result == 14) {
+    //     cout << y << x << " ";
+    // }
     return result;
 }
 
@@ -71,8 +87,9 @@ int robot_dir(int y, int x, int r_dir) {
     int next_y, next_x;
     int result = 0;
 
-    int idx = 2;
-    for (int day = 2; day < M; ++day) {
+    int idx = 0;
+    for (int day = 1; day <= (M + 1); ++day) {
+        flag = false;
         //오전
         if (harvest_map[y][x] == NOT_HARVEST) {
             for (int dir = 0; dir < 4; ++dir) {
@@ -87,7 +104,7 @@ int robot_dir(int y, int x, int r_dir) {
                 harvest_map[y][x] = day + idx + 3;
                 idx++;
             }
-            else continue;
+            else { continue; }
         }
         else {
             result++;
