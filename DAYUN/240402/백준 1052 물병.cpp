@@ -10,7 +10,6 @@
 #include <iostream>
 #include <bitset>
 
-
 using namespace std;
 
 int main()
@@ -52,17 +51,11 @@ int main()
         }
     }
 
-    if(j == i) cout << j - n << endl;
+    if(j == i) cout << j - n << "\n";
     else {
-        // cout << bitset<16>(j) << endl;
         unsigned int nj = n | j;
         j = i - j;
-        cout << (j & nj) - n;
-
-        cout << endl;
-        // cout << bitset<32>(i) << endl;
-        // cout << bitset<32>(j & nj) << endl;
-        // cout << bitset<32>(n) << endl;
+        cout << (j & nj) - n <<"\n";
     }
 
 }
