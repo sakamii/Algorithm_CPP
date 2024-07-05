@@ -5,6 +5,7 @@
 
 
 #include <queue>
+#include <vector>
 #include <string.h>
 #include <iostream>
 
@@ -12,12 +13,14 @@ using namespace std;
 
 int w;
 int h;
+int ret;
 int numDirty;
 int dir[4][2] = {{0, 1}, {0, -1}, {1, 0}, {0, -1}};
 int dist[10][10];
 int startDist[10];
 char room[20][20];
 bool visited[20][20];
+bool visitedSpot[10];
 pair<int,int> dirty[10];
 priority_queue<pair<int, int>> pq;
 
@@ -25,31 +28,28 @@ priority_queue<pair<int, int>> pq;
 //return Robot start posion
 pair<int, int> init();
 void find(pair<int, int>);
-
+void dfs(int restDirty, int startPoint, int cost);
 
 int main() {
     while(true) {
-        int result = 0;
+        ret = 4000000;
         pair<int, int> start = init();
         if(w == 0) break;
         
         find(start);
+        for(int i= 0; i < numDirty; i++) {
+            for(int j= 0; j < numDirty; j++) {
+                cout << dist[i][j] << " ";
+            }
+            cout << endl;
+        }
+        fill(startDist, startDist + numDirty, ret);
+        fill(&dist[0][0], &dist[0][0] + (numDirty * 10), ret);
 
-        while(!pq.empty()) {
-            int cost = -pq.top().first;
-            pair<int, int> nextPosition = dirty[pq.top().second];
-            char nextDirtyPlayNum = room[nextPosition.first][nextPosition.second];
-            room[nextPosition.first][nextPosition.second] = '/';
-            pq.pop();
+        for(int dp = 0; dp < numDirty; ++dp) {
+            dfs(numDirty - 1, dp, startDist[dp]);
+        }
 
-            if(nextDirtyPlayNum == '/' ) continue;
-            result += cost;
-            cout << cost << " ";
-            find(nextPosition);
-            cout << ",";
-        }   
-
-        cout << result << endl;
     }
 }
 
@@ -83,45 +83,69 @@ void find(pair<int, int> start){
     while(!q.empty()) {
         pair<int, int> now = q.top().second;
         int cost = -q.top().first + 1;
+        q.pop();
+
         for(int i = 0; i < 4; ++i) {
-            pair<int, int> next = {now.first + dir[i][0], now.second + dir[i][0]};
+            pair<int, int> next = {now.first + dir[i][0], now.second + dir[i][1]};
             if(next.first < 0 || next.first >= h || next.second < 0 || next.second >= w) continue;
             if(visited[next.first][next.second]) continue;
             if(room[next.first][next.second] == 'x') continue;
             if(room[next.first][next.second] >= 0 && room[next.first][next.second] <= 9 ) {
                 startDist[room[next.first][next.second]] = cost;
             }
+            visited[next.first][next.second] = true;
             q.push({-cost, next});
         } 
     }
 
+
+    for(int i = 0; i < numDirty; i++) {
+        cout << startDist[i] << " ";
+    }
+    cout << endl;
+
     //next dirty place
-    for(int dp = 0; dp <)
-    
-    visited[p.first][p.second] = true;
-    priority_queue<pair<int, pair<int, int>>> q;
-    q.push({0, p});
-    while(!q.empty()) {
-        pair<int, int> now = q.top().second;
-        int cost = -q.top().first + 1;
-        cout << cost;
-        q.pop();
-        for(int i = 0; i < 4; i++){
-            pair<int , int> next = {now.first + dir[i][0], now.second + dir[i][1]};
-            if(next.first < 0 || next.second < 0 || next.first >= h || next.second >= w) continue;
-            if(visited[next.first][next.second]) continue;
-            if(room[next.first][next.second] == '/') continue;    
-            if(room[next.first][next.second] == 'x') continue;    
-                pq.push({-cost, (int)(room[next.first][next.second] - '0')});
-                continue;
-            }
-            visited[next.first][next.second] = true;
-            q.push({-cost, next});
+    for(int dp = 0; dp < numDirty; dp++) {
+        memset(visited, false, sizeof(visited));
+        visited[dirty[dp].first][dirty[dp].second] = true;
+        q.push({0, dirty[dp]});
+        while(!q.empty()) {
+            pair<int, int> now = q.top().second;
+            int cost = -q.top().first + 1;
+            q.pop();
+            for(int i = 0; i < 4; ++i) {
+                pair<int, int> next = {now.first + dir[i][0], now.second + dir[i][1]};
+                if(next.first < 0 || next.first >= h || next.second < 0 || next.second >= w) continue;
+                if(visited[next.first][next.second]) continue;
+                if(room[next.first][next.second] == 'x') continue;
+                if(room[next.first][next.second] >= 0 && room[next.first][next.second] <= 9 ) {
+                    dist[dp][room[next.first][next.second]] = cost;
+                    dist[room[next.first][next.second]][dp] = cost;
+                }
+                visited[next.first][next.second] = true;
+                q.push({-cost, next});
+            } 
         }
+        room[dirty[dp].first][dirty[dp].second] = 'x';
     }
 }
 
+void dfs(int restDirty, int startPoint, int cost) {
+    if(restDirty == 0 ) {
+        ret = ret < cost ? ret : cost;
+        return;
+    }
+    if(ret <= cost) {
+        return;
+    }
 
+    for(int i = 0; i < numDirty; ++i) {
+        if(visitedSpot[i]) continue;
+        visitedSpot[i] = true;
+        dfs(restDirty - 1, i, cost + dist[startPoint][i]);
+        visitedSpot[i] = false;
+    }
+}
 
 
 // 다음 후보 https://www.acmicpc.net/problem/14500 (쌉구현)
