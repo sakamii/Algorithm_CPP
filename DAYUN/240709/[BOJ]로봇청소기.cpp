@@ -1,5 +1,9 @@
 // https://www.acmicpc.net/problem/4991
 
+// 모든 경우의 길찾기 
+// A-> B가는 경우 
+
+
 #include <queue>
 #include <string.h>
 #include <iostream>
@@ -8,12 +12,14 @@ using namespace std;
 
 int w;
 int h;
-int numCleaned;
-pair<int,int> cleaned[10];
+int numDirty;
+int dir[4][2] = {{0, 1}, {0, -1}, {1, 0}, {0, -1}};
+int dist[10][10];
+int startDist[10];
 char room[20][20];
 bool visited[20][20];
+pair<int,int> dirty[10];
 priority_queue<pair<int, int>> pq;
-int dir[4][2] = {{0, 1}, {0, -1}, {1, 0}, {0, -1}};
 
 
 //return Robot start posion
@@ -27,12 +33,11 @@ int main() {
         pair<int, int> start = init();
         if(w == 0) break;
         
-        //find next node dist (start Node) -> input prioiryty queue
         find(start);
 
         while(!pq.empty()) {
             int cost = -pq.top().first;
-            pair<int, int> nextPosition = cleaned[pq.top().second];
+            pair<int, int> nextPosition = dirty[pq.top().second];
             char nextDirtyPlayNum = room[nextPosition.first][nextPosition.second];
             room[nextPosition.first][nextPosition.second] = '/';
             pq.pop();
@@ -52,17 +57,16 @@ pair<int, int> init() {
     pair<int, int> ret;
 
     cin >> w >> h;
-    int roomNum = 0;
+    numDirty = 0;
     for(int i = 0; i < h; i++) {
         for(int j = 0; j < w; j++) {
             cin >> room[i][j];
             if(room[i][j] == 'o')  {
                 ret = {i, j};
-                room[i][j] = '/';
             }
             if(room[i][j] == '*')  {
-                cleaned[roomNum] = {i, j};
-                room[i][j] = '0' + roomNum++ ;
+                dirty[numDirty] = {i, j};
+                room[i][j] = numDirty++ ;
             }
         }
     }
@@ -70,9 +74,30 @@ pair<int, int> init() {
     return ret;
 }
 
-void find(pair<int, int> p){
+void find(pair<int, int> start){
     memset(visited, false, sizeof(visited));
+    priority_queue<pair<int, pair<int, int>>> q;
+    visited[start.first][start.second] = true;
+    q.push({0, start});
+    //start BFS
+    while(!q.empty()) {
+        pair<int, int> now = q.top().second;
+        int cost = -q.top().first + 1;
+        for(int i = 0; i < 4; ++i) {
+            pair<int, int> next = {now.first + dir[i][0], now.second + dir[i][0]};
+            if(next.first < 0 || next.first >= h || next.second < 0 || next.second >= w) continue;
+            if(visited[next.first][next.second]) continue;
+            if(room[next.first][next.second] == 'x') continue;
+            if(room[next.first][next.second] >= 0 && room[next.first][next.second] <= 9 ) {
+                startDist[room[next.first][next.second]] = cost;
+            }
+            q.push({-cost, next});
+        } 
+    }
 
+    //next dirty place
+    for(int dp = 0; dp <)
+    
     visited[p.first][p.second] = true;
     priority_queue<pair<int, pair<int, int>>> q;
     q.push({0, p});
@@ -87,7 +112,6 @@ void find(pair<int, int> p){
             if(visited[next.first][next.second]) continue;
             if(room[next.first][next.second] == '/') continue;    
             if(room[next.first][next.second] == 'x') continue;    
-            if(room[next.first][next.second] >= '0' && room[next.first][next.second] <= '9' ) {
                 pq.push({-cost, (int)(room[next.first][next.second] - '0')});
                 continue;
             }
