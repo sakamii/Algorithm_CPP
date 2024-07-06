@@ -15,7 +15,7 @@ int w;
 int h;
 int ret;
 int numDirty;
-int dir[4][2] = {{0, 1}, {0, -1}, {1, 0}, {0, -1}};
+int dir[4][2] = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
 int dist[10][10];
 int startDist[10];
 char room[20][20];
@@ -33,22 +33,22 @@ void dfs(int restDirty, int startPoint, int cost);
 int main() {
     while(true) {
         ret = 4000000;
+        
         pair<int, int> start = init();
         if(w == 0) break;
-        
-        find(start);
-        for(int i= 0; i < numDirty; i++) {
-            for(int j= 0; j < numDirty; j++) {
-                cout << dist[i][j] << " ";
-            }
-            cout << endl;
-        }
         fill(startDist, startDist + numDirty, ret);
         fill(&dist[0][0], &dist[0][0] + (numDirty * 10), ret);
+        find(start);
 
         for(int dp = 0; dp < numDirty; ++dp) {
+            visitedSpot[dp] = true;
             dfs(numDirty - 1, dp, startDist[dp]);
+            visitedSpot[dp] = false;
         }
+
+        if(ret >= 400000) ret = -1;
+
+        cout << ret << "\n";
 
     }
 }
@@ -79,7 +79,6 @@ void find(pair<int, int> start){
     priority_queue<pair<int, pair<int, int>>> q;
     visited[start.first][start.second] = true;
     q.push({0, start});
-    //start BFS
     while(!q.empty()) {
         pair<int, int> now = q.top().second;
         int cost = -q.top().first + 1;
@@ -97,12 +96,6 @@ void find(pair<int, int> start){
             q.push({-cost, next});
         } 
     }
-
-
-    for(int i = 0; i < numDirty; i++) {
-        cout << startDist[i] << " ";
-    }
-    cout << endl;
 
     //next dirty place
     for(int dp = 0; dp < numDirty; dp++) {
