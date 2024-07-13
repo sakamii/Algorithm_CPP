@@ -140,6 +140,3 @@ void dfs(int restDirty, int startPoint, int cost) {
     }
 }
 
-
-// 다음 후보 https://www.acmicpc.net/problem/14500 (쌉구현)
-// https://www.acmicpc.net/problem/1429
