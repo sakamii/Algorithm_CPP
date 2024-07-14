@@ -5,10 +5,10 @@
 
 using namespace std;
 
-int map[20][20];
+int map[30][30];
 int N, M, fuel;
-int guest[400][4];
-bool visited[21][21];
+int guest[420][4];
+bool visited[30][30];
 int dir[4][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
 pair<int, int> driverP;
 
@@ -16,8 +16,6 @@ int findNextGuest();
 void calDist(int guestNum);
 
 int main(){
-    int result = 0;
-
     cin >> N;
     cin >> M;
     cin >> fuel;
@@ -25,7 +23,6 @@ int main(){
         for(int j = 1; j <= N; ++j) {
             cin >> map[i][j];
         }
-        cout << endl;
     }
 
     cin >> driverP.first >> driverP.second;
@@ -45,14 +42,24 @@ int main(){
     if(fuel < 0) cout << -1;
     else cout << fuel;
 }
-
 int findNextGuest(){
     int ret = 500;
     int d = fuel + 1;
+    int row = 30;
+    int col = 30;
 
     memset(visited, false, sizeof(visited));
-    queue<pair<int, pair<int, int>>> position;
-    position.push({0, driverP});
+    queue<pair<int, pair<int, int> > > position;
+    pair<int, pair<int, int> > p;
+    p.first = 0;
+    p.second = driverP;
+    position.push(p);
+
+    if(map[driverP.first][driverP.second] != 0) {
+        ret = map[driverP.first][driverP.second] - 2;
+        map[driverP.first][driverP.second] = 0;
+        return ret;
+    }
 
     while(!position.empty()) {
         int dist = position.front().first + 1;
@@ -60,7 +67,8 @@ int findNextGuest(){
         int x = position.front().second.second;
         position.pop();
         if(dist > d) break;
-        
+
+
         for(int i = 0; i < 4; ++i) {
             int nextY = y + dir[i][0]; 
             int nextX = x + dir[i][1];
@@ -70,17 +78,33 @@ int findNextGuest(){
             if(visited[nextY][nextX]) continue;
             visited[nextY][nextX] = true;
             if (map[nextY][nextX] != 0) {
-                if(ret > (map[nextY][nextX] - 2)) {
+                if(row > nextY) {
                     ret = map[nextY][nextX] - 2;
+                    col = nextX;
+                    row = nextY;
                     d = dist;
                 } 
+                else if(row == nextY) {
+                    if(col > nextX) {
+                        ret = map[nextY][nextX] - 2;
+                        col = nextX;
+                        row = nextY;
+                        d = dist;
+                    }
+                }
             }
             else {
-                position.push({dist, {nextY, nextX}});
-
+                pair<int, pair<int, int> > temp;
+                temp.first = dist;
+                temp.second.first = nextY;
+                temp.second.second = nextX;
+                position.push(temp);
             }
         }
     }
+
+
+
 
     fuel -= d;
     map[guest[ret][0]][guest[ret][1]] = 0;
@@ -95,8 +119,18 @@ void calDist(int num){
     int goalX = guest[num][3];
 
     memset(visited, false, sizeof(visited));
-    queue<pair<int, pair<int, int>>> position;
-    position.push({0, {guest[num][0], guest[num][1]}});
+    queue<pair<int, pair<int, int> > > position;
+
+    pair<int, pair<int, int> > p;
+    p.first = 0;
+    p.second.first = guest[num][0];
+    p.second.second = guest[num][1];
+    position.push(p);
+
+    if(goalY == guest[num][0] && goalX == guest[num][1]) {
+        return;
+    }
+
 
     while(!position.empty()) {
         int dist = position.front().first + 1;
@@ -104,7 +138,6 @@ void calDist(int num){
         int x = position.front().second.second;
         position.pop();
         if(fuel < dist) break;
-        
         for(int i = 0; i < 4; ++i) {
             int nextY = y + dir[i][0]; 
             int nextX = x + dir[i][1];
@@ -117,9 +150,20 @@ void calDist(int num){
                 ret = dist;
                 break;
             }
+            else {
+                pair<int, pair<int, int> > temp;
+                temp.first = dist;
+                temp.second.first = nextY;
+                temp.second.second = nextX;
+                position.push(temp);
+            }
+
         }
     }
 
-    if(ret == 0) fuel = -1;
+    
+    if(ret == -1) {
+        fuel = -1;
+    }
     else fuel += ret;
 }
