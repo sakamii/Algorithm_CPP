@@ -57,20 +57,15 @@ int main() {
     while(!s.empty()) {
         int temp = -s.top().first;
         node *n = s.top().second;
-        // cout << temp << "t ";
-        // cout << ret << "r ";
         s.pop();
 
         int left = MAX;
         int right = MAX;
         if(n->prev != nullptr){
           left = n->prev->num;
-        //   cout << left << "l ";  
         } 
         if(n->next != nullptr){
             right = n->next->num;
-            // cout << right << "rr ";  
-        
         }
         if(left < right) {
             ret += (left - temp);
@@ -86,7 +81,6 @@ int main() {
         else if(right < left) {
             ret += (right - temp);
             if(left == MAX) {
-                // cout << temp << ". ";
                 n->next->prev = nullptr;
                 continue;
             }
